@@ -19,10 +19,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="592" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="L3w-Jt-776" userLabel="ContentStackView">
-                                <rect key="frame" x="20" y="92" width="552" height="650"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="L3w-Jt-776" userLabel="ContentStackView">
+                                <rect key="frame" x="20" y="82" width="552" height="670"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mu4-5h-Eqr" userLabel="CardView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mu4-5h-Eqr" userLabel="CardView" customClass="CardView" customModule="Book_Sources">
                                         <rect key="frame" x="86" y="0.0" width="380" height="580"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wX5-7H-o0X" userLabel="ProfileImageView">
@@ -118,7 +118,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="Zs0-Bx-AEX" userLabel="ButtonStackView">
-                                        <rect key="frame" x="0.0" y="600" width="552" height="50"/>
+                                        <rect key="frame" x="0.0" y="620" width="552" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iN-jy-JYr" userLabel="VoiceOverButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="236" height="50"/>
@@ -147,14 +147,14 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Zs0-Bx-AEX" firstAttribute="leading" secondItem="L3w-Jt-776" secondAttribute="leading" id="AH9-7L-aWl"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="Ib2-Av-1hR"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" name="Backgroud White"/>
                         <constraints>
-                            <constraint firstItem="qaR-nP-dw0" firstAttribute="trailing" secondItem="L3w-Jt-776" secondAttribute="trailing" constant="20" id="0bG-2A-Paf"/>
                             <constraint firstItem="L3w-Jt-776" firstAttribute="centerX" secondItem="Rh2-0a-zph" secondAttribute="centerX" id="53Q-nN-8nT"/>
-                            <constraint firstItem="L3w-Jt-776" firstAttribute="leading" secondItem="qaR-nP-dw0" secondAttribute="leading" constant="20" id="Y9N-K5-xEV"/>
+                            <constraint firstItem="L3w-Jt-776" firstAttribute="leading" secondItem="qaR-nP-dw0" secondAttribute="leading" priority="999" constant="20" id="Y9N-K5-xEV"/>
                             <constraint firstItem="L3w-Jt-776" firstAttribute="centerY" secondItem="Rh2-0a-zph" secondAttribute="centerY" id="cLy-0p-VkP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qaR-nP-dw0"/>
