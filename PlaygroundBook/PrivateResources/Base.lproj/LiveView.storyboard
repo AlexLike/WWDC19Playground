@@ -47,6 +47,7 @@
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="uOg-sl-S7e" secondAttribute="bottom" constant="7" id="Om7-fo-6zk"/>
                                                     <constraint firstItem="OJE-0P-bYT" firstAttribute="centerX" secondItem="FuU-iS-SXJ" secondAttribute="centerX" id="VsB-HF-NY8"/>
@@ -57,6 +58,9 @@
                                                     <constraint firstAttribute="height" constant="70" id="iV2-6h-dbb"/>
                                                     <constraint firstItem="uOg-sl-S7e" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FuU-iS-SXJ" secondAttribute="leading" constant="1" id="ixN-aV-bdN"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="DJ7-Kk-TMw" appends="YES" id="prU-aT-cQK"/>
+                                                </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns4-cj-kCC" userLabel="PhoneView" customClass="ActionView" customModule="Book_Sources">
                                                 <rect key="frame" x="20" y="460" width="70" height="70"/>
@@ -70,12 +74,16 @@
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstItem="sAK-f3-vCv" firstAttribute="centerY" secondItem="ns4-cj-kCC" secondAttribute="centerY" id="Lgc-9f-dEG"/>
                                                     <constraint firstAttribute="width" constant="70" id="a0S-7B-vIk"/>
                                                     <constraint firstAttribute="height" constant="70" id="p5b-7G-CTd"/>
                                                     <constraint firstItem="sAK-f3-vCv" firstAttribute="centerX" secondItem="ns4-cj-kCC" secondAttribute="centerX" id="qtL-gO-Ol4"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="5no-nz-ZTw" appends="YES" id="BbP-Uf-3pT"/>
+                                                </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9t-pn-67c" userLabel="EmojiView" customClass="ActionView" customModule="Book_Sources">
                                                 <rect key="frame" x="290" y="50" width="70" height="70"/>
@@ -87,6 +95,7 @@
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="Ime-qh-aa4"/>
                                                     <constraint firstItem="TFv-UG-AAv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n9t-pn-67c" secondAttribute="leading" constant="1" id="LE5-16-9XN"/>
@@ -94,6 +103,9 @@
                                                     <constraint firstAttribute="width" constant="70" id="jRr-qv-ZRW"/>
                                                     <constraint firstItem="TFv-UG-AAv" firstAttribute="centerX" secondItem="n9t-pn-67c" secondAttribute="centerX" id="jVh-TX-6Sx"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="GcD-rn-s8f" appends="YES" id="AQE-3I-2SD"/>
+                                                </connections>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello! I'm Lin-Jun." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aed-m1-tCd" userLabel="NameLabel">
                                                 <rect key="frame" x="63.5" y="170" width="253" height="36"/>
@@ -127,6 +139,7 @@
                                                     </mapView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="IMh-sT-yPA"/>
                                                     <constraint firstAttribute="trailing" secondItem="Krd-21-RHB" secondAttribute="trailing" id="PDP-dW-Oxu"/>
@@ -135,6 +148,9 @@
                                                     <constraint firstItem="Krd-21-RHB" firstAttribute="leading" secondItem="22V-AE-bAX" secondAttribute="leading" id="xv7-kH-pbd"/>
                                                     <constraint firstItem="Krd-21-RHB" firstAttribute="top" secondItem="22V-AE-bAX" secondAttribute="top" id="xvK-Ce-syN"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Nkp-2z-7qD" appends="YES" id="X2V-Aj-rTf"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -179,6 +195,9 @@
                                                 <state key="normal" title="  Read it out" image="VoiceOver">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="readItOut:" destination="fcD-sv-Xiz" eventType="touchUpInside" id="Hze-sY-Yfo"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaz-7h-kfA" userLabel="ARButton" customClass="BottomButton" customModule="Book_Sources">
                                                 <rect key="frame" x="286" y="0.0" width="266" height="50"/>
@@ -190,6 +209,9 @@
                                                 <state key="normal" title="  View in AR" image="AR">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="viewInAR:" destination="fcD-sv-Xiz" eventType="touchUpInside" id="Ucs-Gz-FiC"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -225,6 +247,26 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uvi-wC-fap" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="DJ7-Kk-TMw" userLabel="birthdateActionViewTapRecognizer">
+                    <connections>
+                        <action selector="openBirthdatePrompt:" destination="fcD-sv-Xiz" id="Pvt-Ok-SD8"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="GcD-rn-s8f" userLabel="emojiActionViewTapRecognizer">
+                    <connections>
+                        <action selector="simulateConfetti:" destination="fcD-sv-Xiz" id="2Y5-7O-DfN"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="5no-nz-ZTw" userLabel="phoneActionViewTapRecognizer">
+                    <connections>
+                        <action selector="mockCallAndJoke:" destination="fcD-sv-Xiz" id="S1P-kM-bLB"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Nkp-2z-7qD" userLabel="mapsActionViewTapRecognizer">
+                    <connections>
+                        <action selector="openMap:" destination="fcD-sv-Xiz" id="7Wg-NT-UsU"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-247.29729729729729" y="95.683453237410077"/>
         </scene>

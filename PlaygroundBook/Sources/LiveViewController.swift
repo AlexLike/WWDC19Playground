@@ -10,7 +10,7 @@ import UIKit
 import PlaygroundSupport
 
 @objc(Book_Sources_LiveViewController)
-public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHandler, PlaygroundLiveViewSafeAreaContainer {
+public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHandler, PlaygroundLiveViewSafeAreaContainer, UIGestureRecognizerDelegate {
   
   // MARK: - Properties
   
@@ -55,5 +55,34 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   
   // MARK: - Actions
   
+  // Read it out button pressed
+  @IBAction func readItOut(_ sender: BottomButton) {
+    print("Now, I'll read it out!")
+  }
+  
+  // View in AR button pressed
+  @IBAction func viewInAR(_ sender: BottomButton) {
+    print("Now, I'll open AR mode.")
+  }
+  
+  // Birthday action view pressed
+  @IBAction func openBirthdatePrompt(_ sender: ActionView) {
+    print("Now, I'll open the birthdate prompt.")
+  }
+  
+  // Emoji action view pressed
+  @IBAction func simulateConfetti(_ sender: ActionView) {
+    print("Now, I'll simulate confetti.")
+  }
+  
+  // Phone action view pressed
+  @IBAction func mockCallAndJoke(_ sender: ActionView) {
+    print("Now, I'll mock a call.")
+  }
+  
+  // Maps action view pressed
+  @IBAction func openMap(_ sender: ActionView) {
+    print("Now, I'll open the map")
+  }
   
 }
