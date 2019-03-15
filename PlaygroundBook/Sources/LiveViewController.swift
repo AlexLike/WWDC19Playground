@@ -16,6 +16,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   
   // Outlets
   @IBOutlet weak var cardView: CardView!
+  @IBOutlet weak var contentStackView: UIStackView!
   @IBOutlet weak var profileImageView: ProfileImageView!
   @IBOutlet weak var birthdateActionView: ActionView!
   @IBOutlet weak var emojiActionView: ActionView!
@@ -27,6 +28,19 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   @IBOutlet weak var meetLabel: UILabel!
   @IBOutlet weak var voiceOverButton: BottomButton!
   @IBOutlet weak var ARButton: BottomButton!
+  
+  // Animator objects
+  private var cardAnimator: UIDynamicAnimator!
+  private var cardSnapBehaviour: UISnapBehavior!
+  
+  
+  // MARK: - Controller lifecycle
+  
+  public override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    setupCardAnimator()
+  }
+
   
   
   // MARK: - PlaygroundSupport methods
@@ -66,23 +80,59 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   }
   
   // Birthday action view pressed
-  @IBAction func openBirthdatePrompt(_ sender: ActionView) {
+  @IBAction func openBirthdatePrompt(_ recognizer: UITapGestureRecognizer) {
     print("Now, I'll open the birthdate prompt.")
   }
   
   // Emoji action view pressed
-  @IBAction func simulateConfetti(_ sender: ActionView) {
+  @IBAction func simulateConfetti(_ recognizer: UITapGestureRecognizer) {
     print("Now, I'll simulate confetti.")
   }
   
   // Phone action view pressed
-  @IBAction func mockCallAndJoke(_ sender: ActionView) {
+  @IBAction func mockCallAndJoke(_ recognizer: UITapGestureRecognizer) {
     print("Now, I'll mock a call.")
   }
   
   // Maps action view pressed
-  @IBAction func openMap(_ sender: ActionView) {
+  @IBAction func openMap(_ recognizer: UITapGestureRecognizer) {
     print("Now, I'll open the map")
+  }
+  
+  // Card view panned
+  @IBAction func panCardView(_ recognizer: UIPanGestureRecognizer) {
+    // Check whether UIPanGestureRecognizer's state has changed
+    switch recognizer.state {
+    case .began:
+      // Remove the snap behaviour so that the item can move easily
+      cardAnimator.removeBehavior(cardSnapBehaviour)
+    case .changed:
+      // Get the change in position
+      let deltaPos = recognizer.translation(in: view)
+      // Adjust card view's position
+      cardView.center = CGPoint(
+        x: cardView.center.x + deltaPos.x,
+        y: cardView.center.y + deltaPos.y
+      )
+      // Flush recognizer
+      recognizer.setTranslation(.zero, in: view)
+    case .ended, .cancelled, .failed:
+      // Add the snap behaviour so that the item snaps back into place
+      cardAnimator.addBehavior(cardSnapBehaviour)
+    default:
+      return
+    }
+  }
+  
+  
+  // MARK: - Private methods
+  
+  private func setupCardAnimator() {
+    // Instantiate the animator object with live view as
+    cardAnimator = UIDynamicAnimator(referenceView: view)
+    // Configure the snap behaviour
+    let cardViewCenterOnView = cardView.convert(cardView.center, to: view)
+    cardSnapBehaviour = UISnapBehavior(item: cardView, snapTo: CGPoint(x: view.center.x, y: cardViewCenterOnView.y))
   }
   
 }

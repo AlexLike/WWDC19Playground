@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ActionView: UIView {
+class ActionView: UIButton {
   
   // MARK: - Initialization
   
@@ -19,6 +19,21 @@ class ActionView: UIView {
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     setAppearance()
+  }
+  
+  
+  // MARK: - UIButton methods
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesBegan(touches, with: event)
+    // Shrink the action view
+    UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: .preferredFramesPerSecond60, animations: {
+      self.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+    }) { _ in
+      UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: .preferredFramesPerSecond60, animations: {
+        self.transform = CGAffineTransform(scaleX: 1, y: 1)
+      })
+    }
   }
   
   

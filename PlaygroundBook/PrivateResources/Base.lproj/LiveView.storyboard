@@ -134,7 +134,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22V-AE-bAX" userLabel="MapsView" customClass="ActionView" customModule="Book_Sources">
                                                 <rect key="frame" x="290" y="460" width="70" height="70"/>
                                                 <subviews>
-                                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krd-21-RHB">
+                                                    <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krd-21-RHB">
                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                     </mapView>
                                                 </subviews>
@@ -154,6 +154,7 @@
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="mu4-5h-Eqr" secondAttribute="height" multiplier="19:29" id="5En-eQ-boU"/>
                                             <constraint firstItem="slN-xk-xIH" firstAttribute="centerX" secondItem="mu4-5h-Eqr" secondAttribute="centerX" id="CEO-gI-Qem"/>
@@ -181,6 +182,9 @@
                                             <constraint firstItem="n74-bG-tkR" firstAttribute="centerX" secondItem="mu4-5h-Eqr" secondAttribute="centerX" id="z0W-CS-ad6"/>
                                             <constraint firstItem="n74-bG-tkR" firstAttribute="top" secondItem="slN-xk-xIH" secondAttribute="bottom" constant="15" id="zkK-Ay-FhB"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="h0W-0K-5Qh" appends="YES" id="RND-00-nEz"/>
+                                        </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zs0-Bx-AEX" userLabel="ButtonStackView">
                                         <rect key="frame" x="0.0" y="620" width="552" height="50"/>
@@ -235,6 +239,7 @@
                         <outlet property="ARButton" destination="xaz-7h-kfA" id="7yt-Hu-npN"/>
                         <outlet property="birthdateActionView" destination="FuU-iS-SXJ" id="mk8-cC-Arn"/>
                         <outlet property="cardView" destination="mu4-5h-Eqr" id="MTt-S1-Oig"/>
+                        <outlet property="contentStackView" destination="L3w-Jt-776" id="A8I-J8-10J"/>
                         <outlet property="emojiActionView" destination="n9t-pn-67c" id="Ijm-Fy-D9J"/>
                         <outlet property="mapsActionView" destination="22V-AE-bAX" id="SaU-k6-PhR"/>
                         <outlet property="meetLabel" destination="n74-bG-tkR" id="8Vz-Rd-5J5"/>
@@ -247,26 +252,31 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uvi-wC-fap" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="DJ7-Kk-TMw" userLabel="birthdateActionViewTapRecognizer">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="DJ7-Kk-TMw" userLabel="birthdateActionViewTapRecognizer">
                     <connections>
                         <action selector="openBirthdatePrompt:" destination="fcD-sv-Xiz" id="Pvt-Ok-SD8"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="GcD-rn-s8f" userLabel="emojiActionViewTapRecognizer">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="GcD-rn-s8f" userLabel="emojiActionViewTapRecognizer">
                     <connections>
                         <action selector="simulateConfetti:" destination="fcD-sv-Xiz" id="2Y5-7O-DfN"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="5no-nz-ZTw" userLabel="phoneActionViewTapRecognizer">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="5no-nz-ZTw" userLabel="phoneActionViewTapRecognizer">
                     <connections>
                         <action selector="mockCallAndJoke:" destination="fcD-sv-Xiz" id="S1P-kM-bLB"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="Nkp-2z-7qD" userLabel="mapsActionViewTapRecognizer">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="Nkp-2z-7qD" userLabel="mapsActionViewTapRecognizer">
                     <connections>
                         <action selector="openMap:" destination="fcD-sv-Xiz" id="7Wg-NT-UsU"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="h0W-0K-5Qh">
+                    <connections>
+                        <action selector="panCardView:" destination="fcD-sv-Xiz" id="4TP-vn-fu8"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-247.29729729729729" y="95.683453237410077"/>
         </scene>

@@ -27,6 +27,6 @@ class AppDelegate: LiveViewHost.AppDelegate {
         // Valid values are `.fullScreen`, which simulates when the user has expanded the live
         // view to fill the full screen in Swift Playgrounds, and `.sideBySide`, which simulates when
         // the live view is shown next to or above the source code editor in Swift Playgrounds.
-        return .fullScreen
+        return .sideBySide
     }
 }
