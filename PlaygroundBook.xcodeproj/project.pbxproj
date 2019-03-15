@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142777BE223BFDF300DB3B27 /* PlaygroundAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142777BD223BFDF300DB3B27 /* PlaygroundAssets.xcassets */; };
+		142777BF223BFDF300DB3B27 /* PlaygroundAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142777BD223BFDF300DB3B27 /* PlaygroundAssets.xcassets */; };
 		5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E086DCC2051DDAE004D8D25 /* LiveView.storyboard */; };
 		5E086DD32051E3A3004D8D25 /* Manifest.plist in Copy Book Contents */ = {isa = PBXBuildFile; fileRef = 5E086DCF2051DF0F004D8D25 /* Manifest.plist */; };
 		5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3196F22061DEA40077BBD7 /* LiveViewSupport.swift */; };
@@ -90,7 +92,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5E086DC02051C5A7004D8D25 /* PlaygroundBook.playgroundbook */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundBook.playgroundbook; sourceTree = BUILT_PRODUCTS_DIR; };
+		142777BD223BFDF300DB3B27 /* PlaygroundAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PlaygroundAssets.xcassets; sourceTree = "<group>"; };
+		5E086DC02051C5A7004D8D25 /* WWDC19.playgroundbook */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDC19.playgroundbook; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E086DC72051DD03004D8D25 /* BookOverridingBuildSettings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BookOverridingBuildSettings.xcconfig; sourceTree = "<group>"; };
 		5E086DCD2051DDB8004D8D25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LiveView.storyboard; sourceTree = "<group>"; };
 		5E086DCF2051DF0F004D8D25 /* Manifest.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Manifest.plist; sourceTree = "<group>"; };
@@ -135,7 +138,7 @@
 		5E086DA4204F706E004D8D25 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E086DC02051C5A7004D8D25 /* PlaygroundBook.playgroundbook */,
+				5E086DC02051C5A7004D8D25 /* WWDC19.playgroundbook */,
 				5EF2F9AB2054BBF300191409 /* libBook_Sources.a */,
 				5EA2E3BD2056F35A00416A35 /* LiveViewTestApp.app */,
 			);
@@ -243,6 +246,7 @@
 			children = (
 				5EF2F97E2054B6E400191409 /* ManifestPlist.strings */,
 				5E086DCC2051DDAE004D8D25 /* LiveView.storyboard */,
+				142777BD223BFDF300DB3B27 /* PlaygroundAssets.xcassets */,
 			);
 			path = PrivateResources;
 			sourceTree = "<group>";
@@ -282,7 +286,7 @@
 			);
 			name = PlaygroundBook;
 			productName = PlaygroundBook;
-			productReference = 5E086DC02051C5A7004D8D25 /* PlaygroundBook.playgroundbook */;
+			productReference = 5E086DC02051C5A7004D8D25 /* WWDC19.playgroundbook */;
 			productType = "com.apple.product-type.bundle";
 		};
 		5EA2E3BC2056F35A00416A35 /* LiveViewTestApp */ = {
@@ -370,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF2F97C2054B6E400191409 /* ManifestPlist.strings in Resources */,
+				142777BE223BFDF300DB3B27 /* PlaygroundAssets.xcassets in Resources */,
 				5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EA2E3CA2056F35B00416A35 /* LiveViewTestAppLaunchScreen.storyboard in Resources */,
+				142777BF223BFDF300DB3B27 /* PlaygroundAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,8 +479,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E086DC72051DD03004D8D25 /* BookOverridingBuildSettings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.0;
+				DEVELOPMENT_TEAM = VWKBZD2532;
 				GCC_DYNAMIC_NO_PIC = NO;
 				INSTALL_PATH = /;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PLAYGROUND_BOOK_CONTENT_IDENTIFIER)";
@@ -487,8 +495,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E086DC72051DD03004D8D25 /* BookOverridingBuildSettings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.0;
+				DEVELOPMENT_TEAM = VWKBZD2532;
 				INSTALL_PATH = /;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PLAYGROUND_BOOK_CONTENT_IDENTIFIER)";
 				PRODUCT_NAME = "$(PLAYGROUND_BOOK_FILE_NAME)";
@@ -546,7 +556,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -601,7 +611,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -616,7 +626,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VWKBZD2532;
 				GCC_DYNAMIC_NO_PIC = NO;
 				INFOPLIST_FILE = LiveViewTestApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -640,7 +650,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VWKBZD2532;
 				INFOPLIST_FILE = LiveViewTestApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
