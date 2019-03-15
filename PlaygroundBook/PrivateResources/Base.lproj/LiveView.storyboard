@@ -58,7 +58,7 @@
                                                     <constraint firstItem="uOg-sl-S7e" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FuU-iS-SXJ" secondAttribute="leading" constant="1" id="ixN-aV-bdN"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns4-cj-kCC" userLabel="BirthdateView" customClass="ActionView" customModule="Book_Sources">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns4-cj-kCC" userLabel="PhoneView" customClass="ActionView" customModule="Book_Sources">
                                                 <rect key="frame" x="20" y="460" width="70" height="70"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Phone" translatesAutoresizingMaskIntoConstraints="NO" id="sAK-f3-vCv">
@@ -119,7 +119,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22V-AE-bAX" userLabel="EmojiView" customClass="ActionView" customModule="Book_Sources">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22V-AE-bAX" userLabel="MapsView" customClass="ActionView" customModule="Book_Sources">
                                                 <rect key="frame" x="290" y="460" width="70" height="70"/>
                                                 <subviews>
                                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krd-21-RHB">
@@ -166,11 +166,11 @@
                                             <constraint firstItem="n74-bG-tkR" firstAttribute="top" secondItem="slN-xk-xIH" secondAttribute="bottom" constant="15" id="zkK-Ay-FhB"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="Zs0-Bx-AEX" userLabel="ButtonStackView">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zs0-Bx-AEX" userLabel="ButtonStackView">
                                         <rect key="frame" x="0.0" y="620" width="552" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iN-jy-JYr" userLabel="VoiceOverButton" customClass="BottomButton" customModule="Book_Sources">
-                                                <rect key="frame" x="0.0" y="0.0" width="236" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="266" height="50"/>
                                                 <color key="backgroundColor" name="Blue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="TCf-Zd-Xsg"/>
@@ -181,7 +181,7 @@
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaz-7h-kfA" userLabel="ARButton" customClass="BottomButton" customModule="Book_Sources">
-                                                <rect key="frame" x="316" y="0.0" width="236" height="50"/>
+                                                <rect key="frame" x="286" y="0.0" width="266" height="50"/>
                                                 <color key="backgroundColor" name="Blue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="xTg-jV-WqI"/>
@@ -209,6 +209,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qaR-nP-dw0"/>
                     </view>
+                    <connections>
+                        <outlet property="ARButton" destination="xaz-7h-kfA" id="7yt-Hu-npN"/>
+                        <outlet property="birthdateActionView" destination="FuU-iS-SXJ" id="mk8-cC-Arn"/>
+                        <outlet property="cardView" destination="mu4-5h-Eqr" id="MTt-S1-Oig"/>
+                        <outlet property="emojiActionView" destination="n9t-pn-67c" id="Ijm-Fy-D9J"/>
+                        <outlet property="mapsActionView" destination="22V-AE-bAX" id="SaU-k6-PhR"/>
+                        <outlet property="meetLabel" destination="n74-bG-tkR" id="8Vz-Rd-5J5"/>
+                        <outlet property="nameLabel" destination="aed-m1-tCd" id="IbW-Jf-gW8"/>
+                        <outlet property="occupationLabel" destination="slN-xk-xIH" id="TjN-4K-h0R"/>
+                        <outlet property="passionLabel" destination="bHO-wN-H4o" id="Vgf-ga-fZ4"/>
+                        <outlet property="phoneActionView" destination="ns4-cj-kCC" id="ppl-9M-oFy"/>
+                        <outlet property="profileImageView" destination="wX5-7H-o0X" id="3jJ-fd-aCc"/>
+                        <outlet property="voiceOverButton" destination="7iN-jy-JYr" id="lSj-rg-ATd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uvi-wC-fap" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
