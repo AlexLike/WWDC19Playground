@@ -25,34 +25,74 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mu4-5h-Eqr" userLabel="CardView" customClass="CardView" customModule="Book_Sources">
                                         <rect key="frame" x="86" y="0.0" width="380" height="580"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wX5-7H-o0X" userLabel="ProfileImageView">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="wX5-7H-o0X" userLabel="ProfileImageView" customClass="ProfileImageView" customModule="Book_Sources">
                                                 <rect key="frame" x="125" y="20" width="130" height="130"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="wX5-7H-o0X" secondAttribute="height" multiplier="1:1" id="CV6-Kx-3j5"/>
                                                 </constraints>
                                             </imageView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FuU-iS-SXJ" userLabel="BirthdateView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FuU-iS-SXJ" userLabel="BirthdateView" customClass="ActionView" customModule="Book_Sources">
                                                 <rect key="frame" x="20" y="50" width="70" height="70"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJE-0P-bYT">
+                                                        <rect key="frame" x="20.5" y="6" width="29" height="21.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" name="Red"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOg-sl-S7e">
+                                                        <rect key="frame" x="18.5" y="24.5" width="33" height="38.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="uOg-sl-S7e" secondAttribute="bottom" constant="7" id="Om7-fo-6zk"/>
+                                                    <constraint firstItem="OJE-0P-bYT" firstAttribute="centerX" secondItem="FuU-iS-SXJ" secondAttribute="centerX" id="VsB-HF-NY8"/>
+                                                    <constraint firstItem="uOg-sl-S7e" firstAttribute="centerX" secondItem="FuU-iS-SXJ" secondAttribute="centerX" id="WQ2-bJ-WgE"/>
                                                     <constraint firstAttribute="width" constant="70" id="Yiz-mc-DaK"/>
+                                                    <constraint firstItem="OJE-0P-bYT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FuU-iS-SXJ" secondAttribute="leading" constant="1" id="Z8S-2z-G4N"/>
+                                                    <constraint firstItem="OJE-0P-bYT" firstAttribute="top" secondItem="FuU-iS-SXJ" secondAttribute="top" constant="6" id="e1i-m4-jM9"/>
                                                     <constraint firstAttribute="height" constant="70" id="iV2-6h-dbb"/>
+                                                    <constraint firstItem="uOg-sl-S7e" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FuU-iS-SXJ" secondAttribute="leading" constant="1" id="ixN-aV-bdN"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns4-cj-kCC" userLabel="BirthdateView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns4-cj-kCC" userLabel="BirthdateView" customClass="ActionView" customModule="Book_Sources">
                                                 <rect key="frame" x="20" y="460" width="70" height="70"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Phone" translatesAutoresizingMaskIntoConstraints="NO" id="sAK-f3-vCv">
+                                                        <rect key="frame" x="18.5" y="18.5" width="33" height="33"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="33" id="Q3U-oo-7Ta"/>
+                                                            <constraint firstAttribute="width" constant="33" id="xaf-qH-YSY"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="sAK-f3-vCv" firstAttribute="centerY" secondItem="ns4-cj-kCC" secondAttribute="centerY" id="Lgc-9f-dEG"/>
                                                     <constraint firstAttribute="width" constant="70" id="a0S-7B-vIk"/>
                                                     <constraint firstAttribute="height" constant="70" id="p5b-7G-CTd"/>
+                                                    <constraint firstItem="sAK-f3-vCv" firstAttribute="centerX" secondItem="ns4-cj-kCC" secondAttribute="centerX" id="qtL-gO-Ol4"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9t-pn-67c" userLabel="EmojiView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9t-pn-67c" userLabel="EmojiView" customClass="ActionView" customModule="Book_Sources">
                                                 <rect key="frame" x="290" y="50" width="70" height="70"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥳" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFv-UG-AAv">
+                                                        <rect key="frame" x="10" y="8" width="50" height="54"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="45"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="Ime-qh-aa4"/>
+                                                    <constraint firstItem="TFv-UG-AAv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n9t-pn-67c" secondAttribute="leading" constant="1" id="LE5-16-9XN"/>
+                                                    <constraint firstItem="TFv-UG-AAv" firstAttribute="centerY" secondItem="n9t-pn-67c" secondAttribute="centerY" id="P1O-uC-YUR"/>
                                                     <constraint firstAttribute="width" constant="70" id="jRr-qv-ZRW"/>
+                                                    <constraint firstItem="TFv-UG-AAv" firstAttribute="centerX" secondItem="n9t-pn-67c" secondAttribute="centerX" id="jVh-TX-6Sx"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello! I'm Lin-Jun." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aed-m1-tCd" userLabel="NameLabel">
@@ -79,12 +119,21 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22V-AE-bAX" userLabel="EmojiView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22V-AE-bAX" userLabel="EmojiView" customClass="ActionView" customModule="Book_Sources">
                                                 <rect key="frame" x="290" y="460" width="70" height="70"/>
+                                                <subviews>
+                                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krd-21-RHB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                    </mapView>
+                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="IMh-sT-yPA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Krd-21-RHB" secondAttribute="trailing" id="PDP-dW-Oxu"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Krd-21-RHB" secondAttribute="bottom" id="jTy-bA-udl"/>
                                                     <constraint firstAttribute="width" constant="70" id="uPV-Pm-glS"/>
+                                                    <constraint firstItem="Krd-21-RHB" firstAttribute="leading" secondItem="22V-AE-bAX" secondAttribute="leading" id="xv7-kH-pbd"/>
+                                                    <constraint firstItem="Krd-21-RHB" firstAttribute="top" secondItem="22V-AE-bAX" secondAttribute="top" id="xvK-Ce-syN"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -120,25 +169,25 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="Zs0-Bx-AEX" userLabel="ButtonStackView">
                                         <rect key="frame" x="0.0" y="620" width="552" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iN-jy-JYr" userLabel="VoiceOverButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iN-jy-JYr" userLabel="VoiceOverButton" customClass="BottomButton" customModule="Book_Sources">
                                                 <rect key="frame" x="0.0" y="0.0" width="236" height="50"/>
                                                 <color key="backgroundColor" name="Blue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="TCf-Zd-Xsg"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                                <state key="normal" title="Read it out">
+                                                <state key="normal" title="  Read it out" image="VoiceOver">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaz-7h-kfA" userLabel="ARButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaz-7h-kfA" userLabel="ARButton" customClass="BottomButton" customModule="Book_Sources">
                                                 <rect key="frame" x="316" y="0.0" width="236" height="50"/>
                                                 <color key="backgroundColor" name="Blue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="xTg-jV-WqI"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                                <state key="normal" title="View in AR">
+                                                <state key="normal" title="  View in AR" image="AR">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
@@ -156,6 +205,7 @@
                             <constraint firstItem="L3w-Jt-776" firstAttribute="centerX" secondItem="Rh2-0a-zph" secondAttribute="centerX" id="53Q-nN-8nT"/>
                             <constraint firstItem="L3w-Jt-776" firstAttribute="leading" secondItem="qaR-nP-dw0" secondAttribute="leading" priority="999" constant="20" id="Y9N-K5-xEV"/>
                             <constraint firstItem="L3w-Jt-776" firstAttribute="centerY" secondItem="Rh2-0a-zph" secondAttribute="centerY" id="cLy-0p-VkP"/>
+                            <constraint firstItem="L3w-Jt-776" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qaR-nP-dw0" secondAttribute="top" constant="20" id="tDo-DP-GoB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qaR-nP-dw0"/>
                     </view>
@@ -166,11 +216,18 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AR" width="31" height="23"/>
+        <image name="Phone" width="33" height="33"/>
+        <image name="Placeholder" width="130" height="130"/>
+        <image name="VoiceOver" width="30" height="24"/>
         <namedColor name="Backgroud White">
             <color red="0.96862745098039216" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Blue">
             <color red="0.0080000003799796104" green="0.36100000143051147" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Red">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

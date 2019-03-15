@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PlaygroundSupport
 
 class CardView: UIView {
   
@@ -21,13 +22,34 @@ class CardView: UIView {
     setAppearance()
   }
   
+  // MARK: - Overrides
+  
+  override class var layerClass: AnyClass {
+    // Use CAGradientLayer for the view's layer
+    return CAGradientLayer.self
+  }
+  
   
   // MARK: - Private methods
   
   private func setAppearance() {
+    // Cast layer to correct class
+    guard let layer = layer as? CAGradientLayer else {
+      print("CardView: Wasn't able to cast layer to CAGradientLayer.")
+      return
+    }
     // Radius
     layer.cornerRadius = 45
-    backgroundColor = #colorLiteral(red: 0, green: 0.8650887609, blue: 0.320767343, alpha: 1)
+    // Default background gradient
+    layer.colors = [
+      (UIColor(named: "Orange") ?? UIColor.orange).cgColor,
+      (UIColor(named: "Yellow") ?? UIColor.yellow).cgColor
+    ]
+    // Shadow
+    layer.shadowColor = UIColor.black.cgColor
+    layer.shadowOpacity = 0.15
+    layer.shadowOffset = CGSize(width: 0, height: 3)
+    layer.shadowRadius = 5
   }
   
 }

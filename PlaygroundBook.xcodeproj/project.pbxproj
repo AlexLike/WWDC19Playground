@@ -8,9 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		142777BE223BFDF300DB3B27 /* PlaygroundAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142777BD223BFDF300DB3B27 /* PlaygroundAssets.xcassets */; };
-		142777BF223BFDF300DB3B27 /* PlaygroundAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142777BD223BFDF300DB3B27 /* PlaygroundAssets.xcassets */; };
 		142777C9223C054D00DB3B27 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142777C1223C01CA00DB3B27 /* CardView.swift */; };
 		142777CA223C058700DB3B27 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142777C1223C01CA00DB3B27 /* CardView.swift */; };
+		14AB272D223C10EC00F37B03 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AB272C223C10EC00F37B03 /* ProfileImageView.swift */; };
+		14AB272E223C10F300F37B03 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AB272C223C10EC00F37B03 /* ProfileImageView.swift */; };
+		14AB2730223C129C00F37B03 /* LiveView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E086DCC2051DDAE004D8D25 /* LiveView.storyboard */; };
+		14AB2731223C12A900F37B03 /* PlaygroundAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142777BD223BFDF300DB3B27 /* PlaygroundAssets.xcassets */; };
+		14AB2733223C1BB700F37B03 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AB2732223C1BB700F37B03 /* ActionView.swift */; };
+		14AB2734223C1BB900F37B03 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AB2732223C1BB700F37B03 /* ActionView.swift */; };
+		14AB2736223C203600F37B03 /* BottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AB2735223C203600F37B03 /* BottomButton.swift */; };
 		5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E086DCC2051DDAE004D8D25 /* LiveView.storyboard */; };
 		5E086DD32051E3A3004D8D25 /* Manifest.plist in Copy Book Contents */ = {isa = PBXBuildFile; fileRef = 5E086DCF2051DF0F004D8D25 /* Manifest.plist */; };
 		5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3196F22061DEA40077BBD7 /* LiveViewSupport.swift */; };
@@ -96,6 +102,9 @@
 /* Begin PBXFileReference section */
 		142777BD223BFDF300DB3B27 /* PlaygroundAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PlaygroundAssets.xcassets; sourceTree = "<group>"; };
 		142777C1223C01CA00DB3B27 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		14AB272C223C10EC00F37B03 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		14AB2732223C1BB700F37B03 /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
+		14AB2735223C203600F37B03 /* BottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButton.swift; sourceTree = "<group>"; };
 		5E086DC02051C5A7004D8D25 /* WWDC19.playgroundbook */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDC19.playgroundbook; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E086DC72051DD03004D8D25 /* BookOverridingBuildSettings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BookOverridingBuildSettings.xcconfig; sourceTree = "<group>"; };
 		5E086DCD2051DDB8004D8D25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LiveView.storyboard; sourceTree = "<group>"; };
@@ -248,8 +257,8 @@
 			isa = PBXGroup;
 			children = (
 				5EF2F97E2054B6E400191409 /* ManifestPlist.strings */,
-				5E086DCC2051DDAE004D8D25 /* LiveView.storyboard */,
 				142777BD223BFDF300DB3B27 /* PlaygroundAssets.xcassets */,
+				5E086DCC2051DDAE004D8D25 /* LiveView.storyboard */,
 			);
 			path = PrivateResources;
 			sourceTree = "<group>";
@@ -258,6 +267,9 @@
 			isa = PBXGroup;
 			children = (
 				142777C1223C01CA00DB3B27 /* CardView.swift */,
+				14AB272C223C10EC00F37B03 /* ProfileImageView.swift */,
+				14AB2732223C1BB700F37B03 /* ActionView.swift */,
+				14AB2735223C203600F37B03 /* BottomButton.swift */,
 				5EF2F9AD2054BBF300191409 /* LiveViewController.swift */,
 				5E3196F22061DEA40077BBD7 /* LiveViewSupport.swift */,
 			);
@@ -389,7 +401,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EA2E3CA2056F35B00416A35 /* LiveViewTestAppLaunchScreen.storyboard in Resources */,
-				142777BF223BFDF300DB3B27 /* PlaygroundAssets.xcassets in Resources */,
+				14AB2731223C12A900F37B03 /* PlaygroundAssets.xcassets in Resources */,
+				14AB2730223C129C00F37B03 /* LiveView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +432,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14AB2734223C1BB900F37B03 /* ActionView.swift in Sources */,
+				14AB272E223C10F300F37B03 /* ProfileImageView.swift in Sources */,
 				142777CA223C058700DB3B27 /* CardView.swift in Sources */,
 				5EA2E3C02056F35A00416A35 /* AppDelegate.swift in Sources */,
 			);
@@ -428,6 +443,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14AB2736223C203600F37B03 /* BottomButton.swift in Sources */,
+				14AB2733223C1BB700F37B03 /* ActionView.swift in Sources */,
+				14AB272D223C10EC00F37B03 /* ProfileImageView.swift in Sources */,
 				5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */,
 				142777C9223C054D00DB3B27 /* CardView.swift in Sources */,
 				5EF2F9AE2054BBF300191409 /* LiveViewController.swift in Sources */,
