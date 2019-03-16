@@ -87,6 +87,18 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   // Emoji action view pressed
   @IBAction func simulateConfetti(_ recognizer: UITapGestureRecognizer) {
     print("Now, I'll simulate confetti.")
+    // Instantiate a ConfettiOverlayView and start the confetti
+    let confettiOverlayView = ConfettiOverlayView(frame: view.frame)
+    view.addSubview(confettiOverlayView)
+    confettiOverlayView.startConfetti()
+    // Schedule stopConfetti() in 5 seconds
+    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+      confettiOverlayView.stopConfetti()
+    }
+    // Schedule the overlay view's removal in 10 seconds
+    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+      confettiOverlayView.removeFromSuperview()
+    }
   }
   
   // Phone action view pressed
