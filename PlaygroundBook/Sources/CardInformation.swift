@@ -6,17 +6,14 @@
 //
 
 import UIKit
+import PlaygroundSupport
 
-public struct CardInformation {
+public struct CardInformation: PlaygroundValueConvertible {
   
   // MARK: - Properties with defaults
   public var name: String = "a human"
-  public var birthdate: Date? = nil
-  public var image: UIImage? = nil
-  public var favoriteEmoji: String = "😃"
   public var passionEmojis: String = "💻🕺📸"
   public var occupation: String = "existing"
-  public var spokenLanguages: [Locale] = [Locale(identifier: "de")]
   
   
   // MARK: - Object lifecycle
@@ -26,14 +23,13 @@ public struct CardInformation {
   }
   
   // Initializer for custom object
-  public init(name: String, birthdate: Date?, image: UIImage?, favoriteEmoji: String, passionEmojis: String, occupation: String, spokenLanguages: [Locale]) {
+  public init(name: String, passionEmojis: String, occupation: String) {
     self.name = name
-    self.birthdate = birthdate
-    self.image = image
-    self.favoriteEmoji = favoriteEmoji
     self.passionEmojis = passionEmojis
     self.occupation = occupation
-    self.spokenLanguages = spokenLanguages
   }
   
+  public func asPlaygroundValue() -> PlaygroundValue {
+    return PlaygroundValue.dictionary(["name": .string(name), "passionEmojis": .string(passionEmojis), "occupation": .string(occupation)])
+  }
 }

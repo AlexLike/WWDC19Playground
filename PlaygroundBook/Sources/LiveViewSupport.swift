@@ -25,3 +25,16 @@ public func instantiateLiveView() -> PlaygroundLiveViewable {
     return liveViewController
 }
 
+
+// MARK: - Custom convenience protocols and methods
+
+public protocol PlaygroundValueConvertible {
+  func asPlaygroundValue() -> PlaygroundValue
+}
+
+public func sendValue(_ value: PlaygroundValueConvertible) {
+  let page = PlaygroundPage.current
+  let proxy = page.liveView as! PlaygroundRemoteLiveViewProxy
+  proxy.send(value.asPlaygroundValue())
+}
+

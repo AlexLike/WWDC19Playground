@@ -38,6 +38,11 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   
   public override func viewDidLoad() {
     super.viewDidLoad()
+    // Hide all ActionViews, as they're only unlocked at a later point in time
+    birthdateActionView.isHidden = true
+    emojiActionView.isHidden = true
+    phoneActionView.isHidden = true
+    languageActionView.isHidden = true
     // Hide all BottomButtons, as they're only unlocked at a later point in time
     voiceOverButton.isHidden = true
     ARButton.isHidden = true
@@ -51,26 +56,36 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   
   
   // MARK: - PlaygroundSupport methods
-  
-  /*
-   public func liveViewMessageConnectionOpened() {
-   // Implement this method to be notified when the live view message connection is opened.
-   // The connection will be opened when the process running Contents.swift starts running and listening for messages.
-   }
-   */
-  
-  /*
-   public func liveViewMessageConnectionClosed() {
-   // Implement this method to be notified when the live view message connection is closed.
-   // The connection will be closed when the process running Contents.swift exits and is no longer listening for messages.
-   // This happens when the user's code naturally finishes running, if the user presses Stop, or if there is a crash.
-   }
-   */
-  
+
   public func receive(_ message: PlaygroundValue) {
-    // Implement this method to receive messages sent from the process running Contents.swift.
-    // This method is *required* by the PlaygroundLiveViewMessageHandler protocol.
-    // Use this method to decode any messages sent as PlaygroundValue values and respond accordingly.
+    // Check whether the received message is a dictionary of type <String: PlaygroundValue>
+    if case .dictionary(let dictionary) = message {
+      // Go over all the element's keys
+      for key in dictionary.keys {
+        // Switch every element's key for the known one's
+        switch key {
+        case "name":
+          // Extract the String value and update nameLabel
+          guard case .string(let name)? = dictionary[key] else { return }
+          nameLabel.text = "Hello! I'm \(name)."
+        case "passionEmojis":
+          // Extract the String value and update passionLabel
+          guard case .string(let passionEmojis)? = dictionary[key] else { return }
+          passionLabel.text = "Although I'm interested in almost everything, I really love \(passionEmojis)"
+        case "occupation":
+          // Extract the String value and update passionLabel
+          guard case .string(let occupation)? = dictionary[key] else { return }
+          occupationLabel.text = "I'm currently \(occupation)"
+        default:
+          return
+        }
+      }
+    }
+    // Check whether the received message is a date
+    if case .date(let birthdate) = message {
+      birthdateActionView.isHidden = false
+      // Update the birthdate actionview
+    }
   }
   
   

@@ -7,9 +7,3 @@
 //
 //#-end-hidden-code
 
-import UIKit
-import PlaygroundSupport
-
-let cardInformation = CardInformation()
-
-

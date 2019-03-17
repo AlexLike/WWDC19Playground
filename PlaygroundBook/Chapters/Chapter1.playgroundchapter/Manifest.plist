@@ -6,7 +6,9 @@
 	<string>ChapterOneName</string>
 	<key>Pages</key>
 	<array>
-		<string>PlaygroundPage.playgroundpage</string>
+		<string>Introduction.playgroundpage</string>
+		<string>Birthdate.playgroundpage</string>
+		<string>Emoji and Phone.playgroundpage</string>
 	</array>
 </dict>
 </plist>
