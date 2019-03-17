@@ -22,6 +22,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   @IBOutlet weak var birthdateMonthLabel: UILabel!
   @IBOutlet weak var birthdateDayLabel: UILabel!
   @IBOutlet weak var emojiActionView: ActionView!
+  @IBOutlet weak var emojiLabel: UILabel!
   @IBOutlet weak var phoneActionView: ActionView!
   @IBOutlet weak var languageActionView: ActionView!
   @IBOutlet weak var nameLabel: UILabel!
@@ -87,9 +88,17 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
       }
     }
     // Check whether the received message is a date
-    if case .date(_) = message {
+    else if case .date(_) = message {
       // Persist data
       PlaygroundKeyValueStore.current["birthdate"] = message
+    }
+    else if case .string(_) = message {
+      // Persist data
+      PlaygroundKeyValueStore.current["emoji"] = message
+    }
+    else if case .boolean(_) = message {
+      // Persist data
+      PlaygroundKeyValueStore.current["displayPhone"] = message
     }
     // Display data
     restoreFromPersistance()
@@ -108,6 +117,17 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
       updateBirthdateLabelling(date: birthdate)
       // Show birthdate ActionView
       birthdateActionView.isHidden = false
+    }
+    if case .string(let emoji)? = store["emoji"] {
+      // Update emoji label
+      emojiLabel.text = emoji
+      // Show emoji ActionView
+      emojiActionView.isHidden = false
+    }
+    if case .boolean(let displayPhone)? = store["displayPhone"] {
+      guard displayPhone else { return }
+      // Show phone ActionView
+      phoneActionView.isHidden = false
     }
   }
   

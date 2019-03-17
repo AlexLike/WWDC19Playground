@@ -31,9 +31,7 @@ let cardInformation = CardInformation(
   passionEmojis: /*#-editable-code your passions, e.g. 💻📸🎾*/""/*#-end-editable-code*/,
   occupation: /*#-editable-code your occupation, e.g. working @ Apple*/""/*#-end-editable-code*/
 )
-/*:
- When you're ready, hit Run my Code to see the result.
- */
+//: When you're ready, hit "Run My Code" to see the result.
 //#-hidden-code
 if !cardInformation.name.isEmpty && !cardInformation.passionEmojis.isEmpty && !cardInformation.occupation.isEmpty {
   Book_Sources.sendValue(cardInformation)

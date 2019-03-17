@@ -26,11 +26,7 @@ public func instantiateLiveView() -> PlaygroundLiveViewable {
 }
 
 
-// MARK: - Custom convenience protocols and methods
-
-public protocol PlaygroundValueConvertible {
-  func asPlaygroundValue() -> PlaygroundValue
-}
+// MARK: - Custom convenience methods
 
 public func sendValue(_ value: PlaygroundValueConvertible) {
   // Send to the live view

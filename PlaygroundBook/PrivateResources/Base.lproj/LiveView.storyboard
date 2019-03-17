@@ -254,6 +254,7 @@
                         <outlet property="cardView" destination="mu4-5h-Eqr" id="MTt-S1-Oig"/>
                         <outlet property="contentStackView" destination="L3w-Jt-776" id="A8I-J8-10J"/>
                         <outlet property="emojiActionView" destination="n9t-pn-67c" id="Ijm-Fy-D9J"/>
+                        <outlet property="emojiLabel" destination="TFv-UG-AAv" id="wgP-xl-R8f"/>
                         <outlet property="languageActionView" destination="22V-AE-bAX" id="KXp-ld-rmK"/>
                         <outlet property="meetLabel" destination="n74-bG-tkR" id="8Vz-Rd-5J5"/>
                         <outlet property="nameLabel" destination="aed-m1-tCd" id="IbW-Jf-gW8"/>
