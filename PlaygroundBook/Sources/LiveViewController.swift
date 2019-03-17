@@ -136,6 +136,8 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
       phoneActionView.isHidden = false
     }
     if case .array(let languageArray)? = store["languageArray"] {
+      // Empty the language property
+      languages = [Language]()
       // Instantiate a flag collection string
       var languageFlags = String()
       // Go over each playground value
@@ -228,9 +230,29 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
     print("Now, I'll mock a call.")
   }
   
-  // Maps action view pressed
+  // Language action view pressed
   @IBAction func openLanguagePrompt(_ recognizer: UITapGestureRecognizer) {
     print("Now, I'll open the language prompt.")
+    // Construct the alert's message
+    var message = "I see you've discovered which languages I speak. Well, good for you, because you can now shout at me "
+    for language in languages ?? [] {
+      let greeting = helloInLanguage(language)
+      message.append(contentsOf: "\n \(greeting) ")
+    }
+    message.append(contentsOf: "\n to say Hi in a neutral way!")
+    // Instantiate the alert controller and set up its text
+    let alert = UIAlertController(
+      title: "How to greet me",
+      message: message,
+      preferredStyle: .alert
+    )
+    // Add an OK action
+    alert.addAction(UIAlertAction(
+      title: "Thanks!",
+      style: .default
+    ))
+    // Present the alert
+    self.present(alert, animated: true, completion: nil)
   }
   
   // Card view panned
