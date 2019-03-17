@@ -21,7 +21,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   @IBOutlet weak var birthdateActionView: ActionView!
   @IBOutlet weak var emojiActionView: ActionView!
   @IBOutlet weak var phoneActionView: ActionView!
-  @IBOutlet weak var mapsActionView: ActionView!
+  @IBOutlet weak var languageActionView: ActionView!
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var passionLabel: UILabel!
   @IBOutlet weak var occupationLabel: UILabel!
@@ -35,6 +35,13 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   
   
   // MARK: - Controller lifecycle
+  
+  public override func viewDidLoad() {
+    super.viewDidLoad()
+    // Hide all BottomButtons, as they're only unlocked at a later point in time
+    voiceOverButton.isHidden = true
+    ARButton.isHidden = true
+  }
   
   public override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
@@ -95,8 +102,8 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
     DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
       confettiOverlayView.stopConfetti()
     }
-    // Schedule the overlay view's removal in 10 seconds
-    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+    // Schedule the overlay view's removal in 15 seconds
+    DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
       confettiOverlayView.removeFromSuperview()
     }
   }
@@ -107,8 +114,8 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   }
   
   // Maps action view pressed
-  @IBAction func openMap(_ recognizer: UITapGestureRecognizer) {
-    print("Now, I'll open the map")
+  @IBAction func openLanguagePrompt(_ recognizer: UITapGestureRecognizer) {
+    print("Now, I'll open the language prompt.")
   }
   
   // Card view panned
@@ -126,7 +133,13 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
         x: cardView.center.x + deltaPos.x,
         y: cardView.center.y + deltaPos.y
       )
-      // Flush recognizer
+      // Check whether card view overlaps the left edge of view
+      if !view.frame.contains(view.convert(cardView.frame.origin, from: contentStackView)) {
+        print("CardView overlaps the left edge of view")
+      } else if !view.frame.contains(view.convert(CGPoint(x: cardView.frame.maxX, y: 0), from: contentStackView)) {
+        print("CardView overlaps the right edge of view")
+      }
+      // Flush the recognizer
       recognizer.setTranslation(.zero, in: view)
     case .ended, .cancelled, .failed:
       // Add the snap behaviour so that the item snaps back into place

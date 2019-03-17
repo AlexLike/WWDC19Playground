@@ -6,4 +6,10 @@
 //  The Swift file containing the source code edited by the user of this playground book.
 //
 //#-end-hidden-code
-let str = "Hello, playground"
+
+import UIKit
+import PlaygroundSupport
+
+let cardInformation = CardInformation()
+
+

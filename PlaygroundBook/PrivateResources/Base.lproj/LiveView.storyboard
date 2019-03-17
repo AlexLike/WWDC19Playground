@@ -131,22 +131,33 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22V-AE-bAX" userLabel="MapsView" customClass="ActionView" customModule="Book_Sources">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22V-AE-bAX" userLabel="LanguageView" customClass="ActionView" customModule="Book_Sources">
                                                 <rect key="frame" x="290" y="460" width="70" height="70"/>
                                                 <subviews>
-                                                    <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krd-21-RHB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                    </mapView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="afH-I6-GOz" userLabel="FlagStackView">
+                                                        <rect key="frame" x="5" y="6" width="60" height="58"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🇩🇪🇺🇸" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q83-O6-cVU">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="31.5"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🇷🇴🇫🇷" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dez-CX-ZIz">
+                                                                <rect key="frame" x="0.0" y="26.5" width="60" height="31.5"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
+                                                    <constraint firstItem="afH-I6-GOz" firstAttribute="centerY" secondItem="22V-AE-bAX" secondAttribute="centerY" id="HZp-vl-rVR"/>
                                                     <constraint firstAttribute="height" constant="70" id="IMh-sT-yPA"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Krd-21-RHB" secondAttribute="trailing" id="PDP-dW-Oxu"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Krd-21-RHB" secondAttribute="bottom" id="jTy-bA-udl"/>
+                                                    <constraint firstItem="afH-I6-GOz" firstAttribute="centerX" secondItem="22V-AE-bAX" secondAttribute="centerX" id="Ubj-H6-fpt"/>
+                                                    <constraint firstItem="afH-I6-GOz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="22V-AE-bAX" secondAttribute="leading" constant="1" id="jQo-Cf-LAF"/>
                                                     <constraint firstAttribute="width" constant="70" id="uPV-Pm-glS"/>
-                                                    <constraint firstItem="Krd-21-RHB" firstAttribute="leading" secondItem="22V-AE-bAX" secondAttribute="leading" id="xv7-kH-pbd"/>
-                                                    <constraint firstItem="Krd-21-RHB" firstAttribute="top" secondItem="22V-AE-bAX" secondAttribute="top" id="xvK-Ce-syN"/>
                                                 </constraints>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="Nkp-2z-7qD" appends="YES" id="X2V-Aj-rTf"/>
@@ -241,7 +252,7 @@
                         <outlet property="cardView" destination="mu4-5h-Eqr" id="MTt-S1-Oig"/>
                         <outlet property="contentStackView" destination="L3w-Jt-776" id="A8I-J8-10J"/>
                         <outlet property="emojiActionView" destination="n9t-pn-67c" id="Ijm-Fy-D9J"/>
-                        <outlet property="mapsActionView" destination="22V-AE-bAX" id="SaU-k6-PhR"/>
+                        <outlet property="languageActionView" destination="22V-AE-bAX" id="KXp-ld-rmK"/>
                         <outlet property="meetLabel" destination="n74-bG-tkR" id="8Vz-Rd-5J5"/>
                         <outlet property="nameLabel" destination="aed-m1-tCd" id="IbW-Jf-gW8"/>
                         <outlet property="occupationLabel" destination="slN-xk-xIH" id="TjN-4K-h0R"/>
@@ -267,9 +278,9 @@
                         <action selector="mockCallAndJoke:" destination="fcD-sv-Xiz" id="S1P-kM-bLB"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer cancelsTouchesInView="NO" id="Nkp-2z-7qD" userLabel="mapsActionViewTapRecognizer">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="Nkp-2z-7qD" userLabel="languageActionViewTapRecognizer">
                     <connections>
-                        <action selector="openMap:" destination="fcD-sv-Xiz" id="7Wg-NT-UsU"/>
+                        <action selector="openLanguagePrompt:" destination="fcD-sv-Xiz" id="Egu-rr-bqO"/>
                     </connections>
                 </tapGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="h0W-0K-5Qh">
