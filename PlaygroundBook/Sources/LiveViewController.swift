@@ -19,6 +19,8 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   @IBOutlet weak var contentStackView: UIStackView!
   @IBOutlet weak var profileImageView: ProfileImageView!
   @IBOutlet weak var birthdateActionView: ActionView!
+  @IBOutlet weak var birthdateMonthLabel: UILabel!
+  @IBOutlet weak var birthdateDayLabel: UILabel!
   @IBOutlet weak var emojiActionView: ActionView!
   @IBOutlet weak var phoneActionView: ActionView!
   @IBOutlet weak var languageActionView: ActionView!
@@ -32,6 +34,9 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   // Animator objects
   private var cardAnimator: UIDynamicAnimator!
   private var cardSnapBehaviour: UISnapBehavior!
+  
+  // User-input
+  private var birthdate: Date? = Date(timeIntervalSinceNow: 864000)
   
   
   // MARK: - Controller lifecycle
@@ -68,21 +73,12 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
         // Switch every element's key for the known one's
         switch key {
         case "name":
-          // Extract the String value and update nameLabel
-          guard case .string(let name)? = dictionary[key] else { return }
-          nameLabel.text = "Hello! I'm \(name)."
           // Persist data
           PlaygroundKeyValueStore.current["name"] = dictionary[key]
         case "passionEmojis":
-          // Extract the String value and update passionLabel
-          guard case .string(let passionEmojis)? = dictionary[key] else { return }
-          passionLabel.text = "Although I'm interested in almost everything, I really love \(passionEmojis)"
           // Persist data
           PlaygroundKeyValueStore.current["passionEmojis"] = dictionary[key]
         case "occupation":
-          // Extract the String value and update passionLabel
-          guard case .string(let occupation)? = dictionary[key] else { return }
-          occupationLabel.text = "I'm currently \(occupation)"
           // Persist data
           PlaygroundKeyValueStore.current["occupation"] = dictionary[key]
         default:
@@ -91,18 +87,28 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
       }
     }
     // Check whether the received message is a date
-    if case .date(let birthdate) = message {
-      birthdateActionView.isHidden = false
-      // Update the birthdate actionview
+    if case .date(_) = message {
+      // Persist data
+      PlaygroundKeyValueStore.current["birthdate"] = message
     }
+    // Display data
+    restoreFromPersistance()
   }
   
-  // Load data from persistant storage
+  // Load data from persistant storage and display it
   private func restoreFromPersistance() {
     let store = PlaygroundKeyValueStore.current
     if case .string(let name)? = store["name"] { nameLabel.text = "Hello! I'm \(name)." }
     if case .string(let passionEmojis)? = store["passionEmojis"] { passionLabel.text = "Although I'm interested in almost everything, I really love \(passionEmojis)" }
     if case .string(let occupation)? = store["occupation"] { occupationLabel.text = "I'm currently \(occupation)" }
+    if case .date(let birthdate)? = store["birthdate"] {
+      // Save to properties
+      self.birthdate = birthdate
+      // Update date labels
+      updateBirthdateLabelling(date: birthdate)
+      // Show birthdate ActionView
+      birthdateActionView.isHidden = false
+    }
   }
   
   
@@ -122,6 +128,36 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   // Birthday action view pressed
   @IBAction func openBirthdatePrompt(_ recognizer: UITapGestureRecognizer) {
     print("Now, I'll open the birthdate prompt.")
+    // Get the current calendar
+    let calendar = Calendar.current
+    // Get now as a date
+    let now = Date()
+    // Replace its time with 0:00 for preciseness
+    let today = calendar.startOfDay(for: now)
+    // Get this year's birthday
+    var birthdateComponents = calendar.dateComponents([.month, .day], from: birthdate!)
+    birthdateComponents.year = calendar.component(.year, from: today)
+    var birthdayThisYear = calendar.date(from: birthdateComponents) ?? Date()
+    // Choose next year's birthday if it already happened this year
+    if birthdayThisYear < today {
+      birthdateComponents.year = calendar.component(.year, from: today) + 1
+      birthdayThisYear = calendar.date(from: birthdateComponents) ?? Date()
+    }
+    // Compute the days inbetween
+    let daysInbetween = calendar.dateComponents([.day], from: today, to: birthdayThisYear).day ?? 0
+    // Instantiate the alert controller and set up its text
+    let alert = UIAlertController(
+      title: "Only \(daysInbetween) days to go!",
+      message: "I can't wait to celebrate with everyone. We'll have a big barbecue, maybe some Animoji karaoke and one big pie, or how about multiple big pies? Yummy!",
+      preferredStyle: .alert
+    )
+    // Add an OK action
+    alert.addAction(UIAlertAction(
+      title: "Yeah!",
+      style: .default
+    ))
+    // Present the alert
+    self.present(alert, animated: true, completion: nil)
   }
   
   // Emoji action view pressed
@@ -191,6 +227,18 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
     // Configure the snap behaviour
     let cardViewCenterOnView = cardView.convert(cardView.center, to: view)
     cardSnapBehaviour = UISnapBehavior(item: cardView, snapTo: CGPoint(x: view.center.x, y: cardViewCenterOnView.y))
+  }
+  
+  private func updateBirthdateLabelling(date: Date) {
+    // Instantiate and configure a DateFormatter
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale(identifier: "en_US")
+    // Format month
+    dateFormatter.setLocalizedDateFormatFromTemplate("MMM")
+    birthdateMonthLabel.text = dateFormatter.string(from: date)
+    // Format day
+    dateFormatter.setLocalizedDateFormatFromTemplate("d")
+    birthdateDayLabel.text = dateFormatter.string(from: date)
   }
   
 }

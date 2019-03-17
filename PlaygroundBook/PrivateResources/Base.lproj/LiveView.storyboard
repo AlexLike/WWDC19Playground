@@ -249,6 +249,8 @@
                     <connections>
                         <outlet property="ARButton" destination="xaz-7h-kfA" id="7yt-Hu-npN"/>
                         <outlet property="birthdateActionView" destination="FuU-iS-SXJ" id="mk8-cC-Arn"/>
+                        <outlet property="birthdateDayLabel" destination="uOg-sl-S7e" id="zUo-8a-gNy"/>
+                        <outlet property="birthdateMonthLabel" destination="OJE-0P-bYT" id="NbH-pz-y5l"/>
                         <outlet property="cardView" destination="mu4-5h-Eqr" id="MTt-S1-Oig"/>
                         <outlet property="contentStackView" destination="L3w-Jt-776" id="A8I-J8-10J"/>
                         <outlet property="emojiActionView" destination="n9t-pn-67c" id="Ijm-Fy-D9J"/>
