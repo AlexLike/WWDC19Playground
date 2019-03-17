@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import PlaygroundSupport
 
 public func addBirthdateActionView(withDate date: Date?) -> Bool {
   guard let date = date else { return false }
@@ -21,5 +22,17 @@ public func addEmojiActionView(withEmoji emoji: String?) -> Bool {
 
 public func addPhoneActionView() -> Bool {
   Book_Sources.sendValue(true)
+  return true
+}
+
+public func addLanguagesActionView(forLanguages languages: [Language]?) -> Bool {
+  guard let languages = languages, !languages.isEmpty else { return false }
+  var languageStrings = [PlaygroundValue]()
+  for language in languages {
+    let languagePlaygroundValue = PlaygroundValue.string(language.rawValue)
+    languageStrings.append(languagePlaygroundValue)
+  }
+  let languageStringsPlaygroundValue = PlaygroundValue.array(languageStrings)
+  Book_Sources.sendValue(languageStringsPlaygroundValue)
   return true
 }

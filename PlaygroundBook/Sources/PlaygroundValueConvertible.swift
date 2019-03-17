@@ -1,5 +1,5 @@
 //
-//  DateExtension.swift
+//  PlaygroundValueConvertible.swift
 //  Book_Sources
 //
 //  Created by Alexander Zank on 17.03.19.
@@ -27,5 +27,11 @@ extension String: PlaygroundValueConvertible {
 extension Bool: PlaygroundValueConvertible {
   public func asPlaygroundValue() -> PlaygroundValue {
     return PlaygroundValue.boolean(self)
+  }
+}
+
+extension PlaygroundValue: PlaygroundValueConvertible {
+  public func asPlaygroundValue() -> PlaygroundValue {
+    return self
   }
 }

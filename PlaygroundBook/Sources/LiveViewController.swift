@@ -25,6 +25,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   @IBOutlet weak var emojiLabel: UILabel!
   @IBOutlet weak var phoneActionView: ActionView!
   @IBOutlet weak var languageActionView: ActionView!
+  @IBOutlet weak var languageFlagLabel: UILabel!
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var passionLabel: UILabel!
   @IBOutlet weak var occupationLabel: UILabel!
@@ -37,7 +38,8 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   private var cardSnapBehaviour: UISnapBehavior!
   
   // User-input
-  private var birthdate: Date? = Date(timeIntervalSinceNow: 864000)
+  private var birthdate: Date?
+  private var languages: [Language]?
   
   
   // MARK: - Controller lifecycle
@@ -100,6 +102,10 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
       // Persist data
       PlaygroundKeyValueStore.current["displayPhone"] = message
     }
+    else if case .array(_) = message {
+      // Persist data
+      PlaygroundKeyValueStore.current["languageArray"] = message
+    }
     // Display data
     restoreFromPersistance()
   }
@@ -128,6 +134,26 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
       guard displayPhone else { return }
       // Show phone ActionView
       phoneActionView.isHidden = false
+    }
+    if case .array(let languageArray)? = store["languageArray"] {
+      // Instantiate a flag collection string
+      var languageFlags = String()
+      // Go over each playground value
+      for languagePlaygroundValue in languageArray {
+        // Convert it to a raw string value
+        guard case .string(let languageString) = languagePlaygroundValue else { return }
+        // Cast to Language and store in properties
+        guard let language = Language(rawValue: languageString) else { return }
+        languages?.append(language)
+        // Get the language's flag
+        let flag = flagEmojiForLanguage(language)
+        // Append the flag to the collection
+        languageFlags.append(contentsOf: flag)
+      }
+      // Update flag label
+      languageFlagLabel.text = languageFlags
+      // Show language ActionView
+      languageActionView.isHidden = false
     }
   }
   
