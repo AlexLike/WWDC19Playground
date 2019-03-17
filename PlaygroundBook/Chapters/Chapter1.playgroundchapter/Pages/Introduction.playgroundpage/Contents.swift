@@ -35,5 +35,10 @@ let cardInformation = CardInformation(
  When you're ready, hit Run my Code to see the result.
  */
 //#-hidden-code
-Book_Sources.sendValue(cardInformation)
+if !cardInformation.name.isEmpty && !cardInformation.passionEmojis.isEmpty && !cardInformation.occupation.isEmpty {
+  Book_Sources.sendValue(cardInformation)
+  PlaygroundPage.current.assessmentStatus = .pass(message: "### You did it! \nAs you can see, your information was transferred seamlessly to the live view. Let's continue with some more advanced stuff on the [**next Page**](@next)")
+} else {
+  PlaygroundPage.current.assessmentStatus = .fail(hints: ["Fill out every block to continue!"], solution: nil)
+}
 //#-end-hidden-code

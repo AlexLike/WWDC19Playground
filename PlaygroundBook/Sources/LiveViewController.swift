@@ -46,6 +46,8 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
     // Hide all BottomButtons, as they're only unlocked at a later point in time
     voiceOverButton.isHidden = true
     ARButton.isHidden = true
+    // Restore data from previous pages
+    restoreFromPersistance()
   }
   
   public override func viewDidLayoutSubviews() {
@@ -57,6 +59,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   
   // MARK: - PlaygroundSupport methods
 
+  // Interpret received messages
   public func receive(_ message: PlaygroundValue) {
     // Check whether the received message is a dictionary of type <String: PlaygroundValue>
     if case .dictionary(let dictionary) = message {
@@ -68,14 +71,20 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
           // Extract the String value and update nameLabel
           guard case .string(let name)? = dictionary[key] else { return }
           nameLabel.text = "Hello! I'm \(name)."
+          // Persist data
+          PlaygroundKeyValueStore.current["name"] = dictionary[key]
         case "passionEmojis":
           // Extract the String value and update passionLabel
           guard case .string(let passionEmojis)? = dictionary[key] else { return }
           passionLabel.text = "Although I'm interested in almost everything, I really love \(passionEmojis)"
+          // Persist data
+          PlaygroundKeyValueStore.current["passionEmojis"] = dictionary[key]
         case "occupation":
           // Extract the String value and update passionLabel
           guard case .string(let occupation)? = dictionary[key] else { return }
           occupationLabel.text = "I'm currently \(occupation)"
+          // Persist data
+          PlaygroundKeyValueStore.current["occupation"] = dictionary[key]
         default:
           return
         }
@@ -87,6 +96,15 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
       // Update the birthdate actionview
     }
   }
+  
+  // Load data from persistant storage
+  private func restoreFromPersistance() {
+    let store = PlaygroundKeyValueStore.current
+    if case .string(let name)? = store["name"] { nameLabel.text = "Hello! I'm \(name)." }
+    if case .string(let passionEmojis)? = store["passionEmojis"] { passionLabel.text = "Although I'm interested in almost everything, I really love \(passionEmojis)" }
+    if case .string(let occupation)? = store["occupation"] { occupationLabel.text = "I'm currently \(occupation)" }
+  }
+  
   
   
   // MARK: - Actions

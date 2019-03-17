@@ -33,6 +33,7 @@ public protocol PlaygroundValueConvertible {
 }
 
 public func sendValue(_ value: PlaygroundValueConvertible) {
+  // Send to the live view
   let page = PlaygroundPage.current
   let proxy = page.liveView as! PlaygroundRemoteLiveViewProxy
   proxy.send(value.asPlaygroundValue())

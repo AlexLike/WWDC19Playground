@@ -9,5 +9,6 @@ import Foundation
 
 public func addBirthdateActionView(withDate date: Date?) -> Bool {
   guard let date = date else { return false }
+  Book_Sources.sendValue(date)
   return true
 }
