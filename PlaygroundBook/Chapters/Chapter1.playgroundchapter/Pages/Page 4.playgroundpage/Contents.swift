@@ -30,10 +30,10 @@
 import UIKit
 import PlaygroundSupport
 //#-end-hidden-code
-// Instantiate an array with your spoken languages in the short notation (.language)
+// Instantiate an array with your spoken languages in the full notation (Language.yourLanguage)
 let myLanguages: [Language] = [
   //#-code-completion(everything, hide)
-  //#-code-completion(currentmodule, show)
+  //#-code-completion(description, show, "Language")
   //#-editable-code your languages, e.g. .englishUS, .french
   //#-end-editable-code
 ]

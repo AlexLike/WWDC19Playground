@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		142777BE223BFDF300DB3B27 /* PlaygroundAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142777BD223BFDF300DB3B27 /* PlaygroundAssets.xcassets */; };
 		142777C9223C054D00DB3B27 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142777C1223C01CA00DB3B27 /* CardView.swift */; };
+		1463C0932240354F00B37C89 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1463C0922240354F00B37C89 /* Gradients.swift */; };
 		14AB272D223C10EC00F37B03 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AB272C223C10EC00F37B03 /* ProfileImageView.swift */; };
 		14AB2730223C129C00F37B03 /* LiveView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E086DCC2051DDAE004D8D25 /* LiveView.storyboard */; };
 		14AB2731223C12A900F37B03 /* PlaygroundAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142777BD223BFDF300DB3B27 /* PlaygroundAssets.xcassets */; };
@@ -105,6 +106,7 @@
 /* Begin PBXFileReference section */
 		142777BD223BFDF300DB3B27 /* PlaygroundAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PlaygroundAssets.xcassets; sourceTree = "<group>"; };
 		142777C1223C01CA00DB3B27 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1463C0922240354F00B37C89 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		14AB272C223C10EC00F37B03 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		14AB2732223C1BB700F37B03 /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
 		14AB2735223C203600F37B03 /* BottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButton.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				14B1891F223E8CC000B1FFC7 /* PublicFunctions.swift */,
 				14AB273B223E6B2E00F37B03 /* CardInformation.swift */,
 				14B18923223EC72A00B1FFC7 /* Languages.swift */,
+				1463C0922240354F00B37C89 /* Gradients.swift */,
 				14B18921223EA00800B1FFC7 /* PlaygroundValueConvertible.swift */,
 				5EF2F9AD2054BBF300191409 /* LiveViewController.swift */,
 				5E3196F22061DEA40077BBD7 /* LiveViewSupport.swift */,
@@ -467,6 +470,7 @@
 				5EF2F9AE2054BBF300191409 /* LiveViewController.swift in Sources */,
 				14AB2738223C611900F37B03 /* ConfettiOverlayView.swift in Sources */,
 				14B18920223E8CC000B1FFC7 /* PublicFunctions.swift in Sources */,
+				1463C0932240354F00B37C89 /* Gradients.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

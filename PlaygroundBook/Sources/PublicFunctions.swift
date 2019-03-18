@@ -5,7 +5,7 @@
 //  Created by Alexander Zank on 17.03.19.
 //
 
-import Foundation
+import UIKit
 import PlaygroundSupport
 
 public func addBirthdateActionView(withDate date: Date?) -> Bool {
@@ -34,5 +34,17 @@ public func addLanguagesActionView(forLanguages languages: [Language]?) -> Bool 
   }
   let languageStringsPlaygroundValue = PlaygroundValue.array(languageStrings)
   Book_Sources.sendValue(languageStringsPlaygroundValue)
+  return true
+}
+
+public func updateProfileImageView(withImage image: UIImage?) -> Bool {
+  guard let image = image else { return false }
+  Book_Sources.sendValue(image)
+  return true
+}
+
+public func updateCardViewLayer(toGradient gradient: Gradient?) -> Bool {
+  guard let gradient = gradient else { return false }
+  Book_Sources.sendValue(gradient.rawValue)
   return true
 }

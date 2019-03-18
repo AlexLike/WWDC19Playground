@@ -5,7 +5,7 @@
 //  Created by Alexander Zank on 17.03.19.
 //
 
-import Foundation
+import UIKit
 import PlaygroundSupport
 
 public protocol PlaygroundValueConvertible {
@@ -27,6 +27,18 @@ extension String: PlaygroundValueConvertible {
 extension Bool: PlaygroundValueConvertible {
   public func asPlaygroundValue() -> PlaygroundValue {
     return PlaygroundValue.boolean(self)
+  }
+}
+
+extension UIImage: PlaygroundValueConvertible {
+  public func asPlaygroundValue() -> PlaygroundValue {
+    return PlaygroundValue.data(self.pngData() ?? Data())
+  }
+}
+
+extension Int: PlaygroundValueConvertible {
+  public func asPlaygroundValue() -> PlaygroundValue {
+    return PlaygroundValue.integer(self)
   }
 }
 

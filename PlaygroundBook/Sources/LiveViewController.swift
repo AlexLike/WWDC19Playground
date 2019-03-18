@@ -106,6 +106,14 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
       // Persist data
       PlaygroundKeyValueStore.current["languageArray"] = message
     }
+    else if case .data(_) = message {
+      // Persist data
+      PlaygroundKeyValueStore.current["profileImage"] = message
+    }
+    else if case .integer(_) = message {
+      // Persist data
+      PlaygroundKeyValueStore.current["gradient"] = message
+    }
     // Display data
     restoreFromPersistance()
   }
@@ -156,6 +164,21 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
       languageFlagLabel.text = languageFlags
       // Show language ActionView
       languageActionView.isHidden = false
+    }
+    if case .data(let profileImagePNGdata)? = store["profileImage"] {
+      // Create an UIImage for the PNG-encoded data
+      let profileImage = UIImage(data: profileImagePNGdata)
+      // Update image view
+      profileImageView.image = profileImage
+    }
+    if case .integer(let gradientRawValue)? = store["gradient"] {
+      // Convert back to Gradient type
+      let gradient = Gradient(rawValue: gradientRawValue) ?? Gradient.deepBlue
+      // Get the color array
+      let cgColorArray = cgColorArrayForGradient(gradient)
+      // Update card view
+      guard let cardViewGradientLayer = cardView.layer as? CAGradientLayer else { return }
+      cardViewGradientLayer.colors = cgColorArray
     }
   }
   
