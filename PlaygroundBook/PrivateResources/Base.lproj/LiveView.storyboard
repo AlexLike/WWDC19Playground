@@ -216,6 +216,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="viewInAR:" destination="fcD-sv-Xiz" eventType="touchUpInside" id="Ucs-Gz-FiC"/>
+                                                    <segue destination="A5x-HK-PLT" kind="presentation" id="BeQ-iO-VAt"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -285,10 +286,81 @@
             </objects>
             <point key="canvasLocation" x="-247.29729729729729" y="95.683453237410077"/>
         </scene>
+        <!--Book SourcesAR View Controller-->
+        <scene sceneID="5Wp-gL-TTf">
+            <objects>
+                <viewController id="A5x-HK-PLT" customClass="Book_Sources_ARViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rN8-I5-YSx">
+                        <rect key="frame" x="0.0" y="0.0" width="592" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5O-uF-BIF">
+                                <rect key="frame" x="0.0" y="0.0" width="592" height="834"/>
+                            </arscnView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="t2d-3P-CMe" userLabel="ButtonStackView">
+                                <rect key="frame" x="20" y="744" width="552" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szn-bZ-2t3" userLabel="BackButton" customClass="BottomButton" customModule="Book_Sources">
+                                        <rect key="frame" x="0.0" y="0.0" width="266" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="KEp-NV-hTF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                        <state key="normal" title="  Back" image="Back">
+                                            <color key="titleColor" name="Blue"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="bkV-Pk-nzC" kind="unwind" unwindAction="goBackToLiveViewController:" id="JsA-nk-Zch"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJO-ae-4uW" userLabel="PlaceButton" customClass="BottomButton" customModule="Book_Sources">
+                                        <rect key="frame" x="286" y="0.0" width="266" height="50"/>
+                                        <color key="backgroundColor" name="Blue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="KAg-SV-rXl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                        <state key="normal" title="  Place your card" image="Place">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="placeCard:" destination="A5x-HK-PLT" eventType="touchUpInside" id="sjf-5f-mrm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="bNe-t8-dD0"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="t2d-3P-CMe" firstAttribute="centerX" secondItem="rN8-I5-YSx" secondAttribute="centerX" id="DXX-V2-GIA"/>
+                            <constraint firstItem="HCd-Qm-l8s" firstAttribute="bottom" secondItem="t2d-3P-CMe" secondAttribute="bottom" constant="20" id="JIZ-4a-bKc"/>
+                            <constraint firstAttribute="bottom" secondItem="s5O-uF-BIF" secondAttribute="bottom" id="KZz-Jb-eSh"/>
+                            <constraint firstItem="s5O-uF-BIF" firstAttribute="leading" secondItem="rN8-I5-YSx" secondAttribute="leading" id="O9H-c8-45w"/>
+                            <constraint firstItem="s5O-uF-BIF" firstAttribute="trailing" secondItem="rN8-I5-YSx" secondAttribute="trailing" id="fEt-bU-cim"/>
+                            <constraint firstItem="s5O-uF-BIF" firstAttribute="top" secondItem="rN8-I5-YSx" secondAttribute="top" id="guO-da-jBu"/>
+                            <constraint firstItem="t2d-3P-CMe" firstAttribute="leading" secondItem="HCd-Qm-l8s" secondAttribute="leading" priority="999" constant="20" id="tFG-BX-Qgt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HCd-Qm-l8s"/>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="s5O-uF-BIF" id="Tcb-8Y-AYd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wnj-1k-hii" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bkV-Pk-nzC" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="545.2702702702702" y="95.683453237410077"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AR" width="31" height="23"/>
+        <image name="Back" width="26" height="16"/>
         <image name="Phone" width="33" height="33"/>
+        <image name="Place" width="26" height="26"/>
         <image name="Placeholder" width="130" height="130"/>
         <image name="VoiceOver" width="30" height="24"/>
         <namedColor name="Backgroud White">

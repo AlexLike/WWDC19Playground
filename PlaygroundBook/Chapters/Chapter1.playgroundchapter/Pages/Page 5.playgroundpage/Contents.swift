@@ -35,14 +35,18 @@ let cardViewGradient: Gradient = /*#-editable-code your gradient, e.g. .deepBlue
 updateCardViewLayer(toGradient: cardViewGradient)
 /*:
  ## Accessibility
- Technology is the ultimate equalizer, which means that your digital card shall be understood by everyone, including those with bad eyesight. By calling this function, your personal card gains a VoiceOver button:
+ Technology is the ultimate equalizer, which means that your digital card shall be understood by everyone, including those with bad eyesight. By calling this function, your personal card gains a VoiceOver button powered by `AVFoundation`:
  */
+// Import Apple's AVFoundation framework
+import AVFoundation
 // Create a readable version of your card and enable the VoiceOver button
 prepareForVoiceOver()
 /*:
  ## It looks so real!
  Finally, let's preview your card in the real world. Thanks to Apple's `ARKit`, you can now bring your digital card into the real world and experience it visually as you would if it was printed out. By calling this function, your personal card gains an AR button:
  */
+// Import Apple's ARKit framework
+import ARKit
 // Configure ARKit and enable the AR button
 prepareForARKit()
 //: When you're ready, hit "Run My Code" to see the result.

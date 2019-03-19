@@ -54,7 +54,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
     languageActionView.isHidden = true
     // Hide all BottomButtons, as they're only unlocked at a later point in time
     voiceOverButton.isHidden = true
-    ARButton.isHidden = true
+    ARButton.isHidden = false
     // Restore data from previous pages
     restoreFromPersistance()
   }
@@ -219,7 +219,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
     let cardText = "You're currently viewing a digital, personal card. \n\(nameLabel.text!) \n\(passionLabel.text!). \n\(occupationLabel.text!). \nMy birthdate is \(birthdateString). \n\(meetLabel.text!)"
     let speechSynthesizer = AVSpeechSynthesizer()
     let speechUtterance = AVSpeechUtterance(string: cardText)
-    speechUtterance.voice = AVSpeechSynthesisVoice(language: "en_US")
+    speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
     speechUtterance.pitchMultiplier = 1.3
     speechSynthesizer.speak(speechUtterance)
   }
@@ -363,6 +363,12 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
     // Format day
     dateFormatter.setLocalizedDateFormatFromTemplate("d")
     birthdateDayLabel.text = dateFormatter.string(from: date)
+  }
+  
+  
+  // MARK: - Navigation
+  
+  @IBAction func goBackToLiveViewController(_ segue: UIStoryboardSegue) {
   }
   
 }
