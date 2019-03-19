@@ -21,7 +21,8 @@ public func addEmojiActionView(withEmoji emoji: String?) -> Bool {
 }
 
 public func addPhoneActionView() -> Bool {
-  Book_Sources.sendValue(true)
+  let dictionary = ["displayPhone": PlaygroundValue.boolean(true)]
+  Book_Sources.sendValue(PlaygroundValue.dictionary(dictionary))
   return true
 }
 
@@ -46,5 +47,17 @@ public func updateProfileImageView(withImage image: UIImage?) -> Bool {
 public func updateCardViewLayer(toGradient gradient: Gradient?) -> Bool {
   guard let gradient = gradient else { return false }
   Book_Sources.sendValue(gradient.rawValue)
+  return true
+}
+
+public func prepareForVoiceOver() -> Bool {
+  let dictionary = ["displayVoiceOver": PlaygroundValue.boolean(true)]
+  Book_Sources.sendValue(PlaygroundValue.dictionary(dictionary))
+  return true
+}
+
+public func prepareForARKit() -> Bool {
+  let dictionary = ["displayARKit": PlaygroundValue.boolean(true)]
+  Book_Sources.sendValue(PlaygroundValue.dictionary(dictionary))
   return true
 }

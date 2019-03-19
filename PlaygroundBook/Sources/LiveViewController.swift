@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 import PlaygroundSupport
 
 @objc(Book_Sources_LiveViewController)
@@ -84,6 +85,15 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
         case "occupation":
           // Persist data
           PlaygroundKeyValueStore.current["occupation"] = dictionary[key]
+        case "displayPhone":
+          // Persist data
+          PlaygroundKeyValueStore.current["displayPhone"] = dictionary[key]
+        case "displayVoiceOver":
+          // Persist data
+          PlaygroundKeyValueStore.current["displayVoiceOver"] = dictionary[key]
+        case "displayARKit":
+          // Persist data
+          PlaygroundKeyValueStore.current["displayARKit"] = dictionary[key]
         default:
           return
         }
@@ -97,10 +107,6 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
     else if case .string(_) = message {
       // Persist data
       PlaygroundKeyValueStore.current["emoji"] = message
-    }
-    else if case .boolean(_) = message {
-      // Persist data
-      PlaygroundKeyValueStore.current["displayPhone"] = message
     }
     else if case .array(_) = message {
       // Persist data
@@ -180,6 +186,16 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
       guard let cardViewGradientLayer = cardView.layer as? CAGradientLayer else { return }
       cardViewGradientLayer.colors = cgColorArray
     }
+    if case .boolean(let displayVoiceOver)? = store["displayVoiceOver"] {
+      guard displayVoiceOver else { return }
+      // Show VoiceOver button
+      voiceOverButton.isHidden = false
+    }
+    if case .boolean(let displayARKit)? = store["displayARKit"] {
+      guard displayARKit else { return }
+      // Show AR button
+      ARButton.isHidden = false
+    }
   }
   
   
@@ -189,6 +205,23 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   // Read it out button pressed
   @IBAction func readItOut(_ sender: BottomButton) {
     print("Now, I'll read it out!")
+    // Get the birthdate as a String
+    var birthdateString: String {
+      // Instantiate a DateFormatter
+      let dateFormatter = DateFormatter()
+      // Set the locale
+      dateFormatter.locale = Locale(identifier: "en_US")
+      // Set the date format
+      dateFormatter.dateStyle = .long
+      // Input your birthdate in the selected format
+      return dateFormatter.string(from: birthdate ?? Date())
+    }
+    let cardText = "You're currently viewing a digital, personal card. \n\(nameLabel.text!) \n\(passionLabel.text!). \n\(occupationLabel.text!). \nMy birthdate is \(birthdateString). \n\(meetLabel.text!)"
+    let speechSynthesizer = AVSpeechSynthesizer()
+    let speechUtterance = AVSpeechUtterance(string: cardText)
+    speechUtterance.voice = AVSpeechSynthesisVoice(language: "en_US")
+    speechUtterance.pitchMultiplier = 1.3
+    speechSynthesizer.speak(speechUtterance)
   }
   
   // View in AR button pressed
