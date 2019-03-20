@@ -31,7 +31,7 @@ addBirthdateActionView(withDate: birthdate)
 //: When you're ready, hit "Run My Code" to see the result.
 //#-hidden-code
 {
-  PlaygroundPage.current.assessmentStatus = .pass(message: "### Great job! \nTry to tap on your newly created birthdate `ActionView` to see what happens! When you've done that, lets continue on the [**next Page**](@next)")
+  PlaygroundPage.current.assessmentStatus = .pass(message: "### Great job! \nTap on your newly created birthdate `ActionView` to see what happens! When you've done that, lets move on to the [**next Page**](@next)")
 } else {
   PlaygroundPage.current.assessmentStatus = .fail(hints: ["Make sure that the birthdate you've entered corresponds to the format you chose. If you get stuck, reset the page and use the default date format like in the example."], solution: nil)
 }

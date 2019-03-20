@@ -8,12 +8,12 @@
 //#-end-hidden-code
 /*:
  # Welcome!
- In this Swift Playground, we'll create a *super fancy, highly customizable and interactive* **personal card** with a bunch of crazy and fun interactions and easter eggs.
+ In this Swift Playground, we'll create a *super fancy, highly customizable and interactive* **personal card** with a ton of crazy and fun interactions and easter eggs.
  ## What's a personal card?
- Well, in day-to-day life, most people carry their **business card** around, yet there's no real equivalant to it for personal purposes and definitely no digital one. *Your* **personal card** should be able to
- - reflect your interests,
- - personality and
- - convey some sort of fun to the viewer.
+ Well, in day-to-day life, most people carry their **business card** around, yet there's no real equivalant to it for personal purposes and definitely no digital one. *Your* **personal card** should
+ - highlight your interests,
+ - reflect your personality and
+ - be fun.
  ## The basics
  Since your card is built on top of Apple's UIKit framework, we'll have to import it first:
  */
@@ -23,7 +23,7 @@ import PlaygroundSupport
 //#-end-hidden-code
 /*:
  As you can see, your card is drawn in a live view, which means that you can interact with it at any point in time.
- To add your basic information and customize some values of it, edit the code below:
+ To add your basic information and customize its properties, edit the code below:
  */
 // Instantiate a CardInformation struct that holds your information and provide your basic information as arguments
 let cardInformation = CardInformation(

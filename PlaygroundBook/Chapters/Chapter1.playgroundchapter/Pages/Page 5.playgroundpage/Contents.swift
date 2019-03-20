@@ -22,7 +22,7 @@ let profileImage: UIImage = /*#-editable-code your image*/#imageLiteral(resource
 updateProfileImageView(withImage: profileImage)
 /*:
  ## So many hues!
- Color is identity and tells a lot about what your brand, or in this case you yourself stand for. If you wish to, you can now customize your card's background. Under the hood, this is backed by a `CAGradientLayer`. Choose from one of the following `Gradient` color combinations:
+ Color is identity and tells the world a lot about what your brand, or in this case you yourself stand for. If you wish to, you can now customize your card's background. Under the hood, this is backed by a `CAGradientLayer`. Choose from one of the following `Gradient` color combinations:
  - `.orangeYellow`
  - `.pinkPurple`
  - `.deepBlue`
@@ -35,7 +35,7 @@ let cardViewGradient: Gradient = /*#-editable-code your gradient, e.g. .deepBlue
 updateCardViewLayer(toGradient: cardViewGradient)
 /*:
  ## Accessibility
- Technology is the ultimate equalizer, which means that your digital card shall be understood by everyone, including those with bad eyesight. By calling this function, your personal card gains a VoiceOver button powered by `AVFoundation`:
+ Technology is the ultimate equalizer, which means that your digital card will be understood by everyone, including those with bad eyesight. By calling this function, your personal card gains a VoiceOver button powered by `AVFoundation`:
  */
 // Import Apple's AVFoundation framework
 import AVFoundation
@@ -43,7 +43,7 @@ import AVFoundation
 prepareForVoiceOver()
 /*:
  ## It looks so real!
- Finally, let's preview your card in the real world. Thanks to Apple's `ARKit`, you can now bring your digital card into the real world and experience it visually as you would if it was printed out. By calling this function, your personal card gains an AR button:
+ Finally, let's preview your card in the real world. Thanks to Apple's `ARKit`, you can now bring your digital card into the real world and experience it visually as if it were printed. By calling this function, your personal card gains an AR button:
  */
 // Import Apple's ARKit framework
 import ARKit

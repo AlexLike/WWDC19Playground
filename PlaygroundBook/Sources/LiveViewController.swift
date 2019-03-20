@@ -290,12 +290,12 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   @IBAction func openLanguagePrompt(_ recognizer: UITapGestureRecognizer) {
     print("Now, I'll open the language prompt.")
     // Construct the alert's message
-    var message = "I see you've discovered which languages I speak. Well, good for you, because you can now shout at me "
+    var message = "I see you've discovered which languages I speak. Well, good for you, because you can now drop me a line saying "
     for language in languages ?? [] {
       let greeting = helloInLanguage(language)
       message.append(contentsOf: "\n \(greeting) ")
     }
-    message.append(contentsOf: "\n to say Hi in a neutral way!")
+    message.append(contentsOf: "\n to say Hi!")
     // Instantiate the alert controller and set up its text
     let alert = UIAlertController(
       title: "How to greet me",

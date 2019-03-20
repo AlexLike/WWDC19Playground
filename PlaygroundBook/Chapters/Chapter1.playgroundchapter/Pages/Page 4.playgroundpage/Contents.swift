@@ -8,7 +8,7 @@
 //#-end-hidden-code
 /*:
  # Je ne parle pas français
- In our globalized world, speaking as many languages as possible is a gate-opener. Let's add the languages you master to your personal card. Choose from the most popular `Language`s on earth:
+ In our globalized world, speaking as many languages as possible opens doors to a world of opportunities. Let's add the languages you master to your personal card. Choose from the most popular `Language`s on earth:
  - `.englishUS`
  - `.englishGB`
  - `.englishAU`
