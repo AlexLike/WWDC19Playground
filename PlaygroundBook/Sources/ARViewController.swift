@@ -16,15 +16,20 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
   
   // Outlets
   @IBOutlet weak var sceneView: ARSCNView!
+  @IBOutlet weak var hintView: UIVisualEffectView!
+  @IBOutlet weak var hintLabel: UILabel!
   
   // User-input
-  var cardImage: UIImage = #imageLiteral(resourceName: "Test.jpeg")
+  var cardImage: UIImage = #imageLiteral(resourceName: "Test")
   
   
   // MARK - Controller lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    // Apply a corner radius to hintView
+    hintView.layer.cornerRadius = 10
+    hintView.clipsToBounds = true
     // Make this controller the delegate for scene view
     sceneView.delegate = self
     // Set up dynamic lighting
@@ -54,12 +59,14 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     // Create the plane to visualize the node using its position and extent
     let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
     let planeNode = SCNNode(geometry: plane)
-    planeNode.isHidden = false
+    planeNode.isHidden = true
     planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
     // Rotate the planeNode to a horizontal position
     planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
     // Add the planeNode to ARKit's root node
     node.addChildNode(planeNode)
+    // Hide hintView
+    hintLabel.text = "Great! Now tap \"Place my card\"."
   }
   
   func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
@@ -96,6 +103,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     // Create the cardNode
     let card = SCNPlane(width: 0.1, height: 0.15)
     card.materials.first?.diffuse.contents = cardImage
+    card.materials.first?.roughness.contents = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+    card.materials.first?.lightingModel = .physicallyBased
     let cardNode = SCNNode(geometry: card)
     cardNode.position = SCNVector3(translate.x, translate.y, translate.z)
     // Rotate the planeNode around x to a horizontal position and around y to face the camera
@@ -103,6 +112,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     cardNode.eulerAngles = SCNVector3(-Float.pi / 2, currentFrame.camera.eulerAngles.y, 0)
     // Add it to the composition
     sceneView.scene.rootNode.addChildNode(cardNode)
+    // Hide hintView
+    hintView.isHidden = true
   }
   
   

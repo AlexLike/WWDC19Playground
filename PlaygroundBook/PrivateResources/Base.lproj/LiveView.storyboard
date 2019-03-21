@@ -378,20 +378,47 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="bNe-t8-dD0"/>
                                 </constraints>
                             </stackView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0L-ae-x3M">
+                                <rect key="frame" x="20" y="604" width="552" height="60"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="alM-Su-Lho">
+                                    <rect key="frame" x="0.0" y="0.0" width="552" height="60"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find an even surface to place your card and hover over it." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZnD-aU-odq">
+                                            <rect key="frame" x="20" y="20" width="512" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ZnD-aU-odq" firstAttribute="centerY" secondItem="alM-Su-Lho" secondAttribute="centerY" id="GE3-Zq-KrH"/>
+                                        <constraint firstItem="ZnD-aU-odq" firstAttribute="top" secondItem="alM-Su-Lho" secondAttribute="top" constant="20" id="bLh-8u-9Wh"/>
+                                        <constraint firstItem="ZnD-aU-odq" firstAttribute="leading" secondItem="alM-Su-Lho" secondAttribute="leading" constant="20" id="fEV-cA-qba"/>
+                                        <constraint firstItem="ZnD-aU-odq" firstAttribute="centerX" secondItem="alM-Su-Lho" secondAttribute="centerX" id="nwS-sZ-bdo"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="t2d-3P-CMe" firstAttribute="top" secondItem="b0L-ae-x3M" secondAttribute="bottom" constant="20" id="9VU-ch-2aA"/>
                             <constraint firstItem="t2d-3P-CMe" firstAttribute="centerX" secondItem="rN8-I5-YSx" secondAttribute="centerX" id="DXX-V2-GIA"/>
                             <constraint firstItem="HCd-Qm-l8s" firstAttribute="bottom" secondItem="t2d-3P-CMe" secondAttribute="bottom" constant="80" id="JIZ-4a-bKc"/>
                             <constraint firstAttribute="bottom" secondItem="s5O-uF-BIF" secondAttribute="bottom" id="KZz-Jb-eSh"/>
                             <constraint firstItem="s5O-uF-BIF" firstAttribute="leading" secondItem="rN8-I5-YSx" secondAttribute="leading" id="O9H-c8-45w"/>
+                            <constraint firstItem="b0L-ae-x3M" firstAttribute="width" secondItem="t2d-3P-CMe" secondAttribute="width" id="Xf5-7N-aqN"/>
                             <constraint firstItem="s5O-uF-BIF" firstAttribute="trailing" secondItem="rN8-I5-YSx" secondAttribute="trailing" id="fEt-bU-cim"/>
                             <constraint firstItem="s5O-uF-BIF" firstAttribute="top" secondItem="rN8-I5-YSx" secondAttribute="top" id="guO-da-jBu"/>
+                            <constraint firstItem="b0L-ae-x3M" firstAttribute="centerX" secondItem="rN8-I5-YSx" secondAttribute="centerX" id="kZc-lA-adN"/>
                             <constraint firstItem="t2d-3P-CMe" firstAttribute="leading" secondItem="HCd-Qm-l8s" secondAttribute="leading" priority="999" constant="20" id="tFG-BX-Qgt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HCd-Qm-l8s"/>
                     </view>
                     <connections>
+                        <outlet property="hintLabel" destination="ZnD-aU-odq" id="nUs-Jq-QZo"/>
+                        <outlet property="hintView" destination="b0L-ae-x3M" id="453-77-ca4"/>
                         <outlet property="sceneView" destination="s5O-uF-BIF" id="Tcb-8Y-AYd"/>
                     </connections>
                 </viewController>

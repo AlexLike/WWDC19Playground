@@ -42,7 +42,6 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   // User-input
   private var birthdate: Date?
   private var languages: [Language]?
-  private var cardViewImage: UIImage?
   
   
   // MARK: - Controller lifecycle
@@ -66,11 +65,11 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
     setupCardAnimator()
     displayUnsupportedIfNeeded()
   }
-
+  
   
   
   // MARK: - PlaygroundSupport methods
-
+  
   // Interpret received messages
   public func receive(_ message: PlaygroundValue) {
     // Check whether the received message is a dictionary of type <String: PlaygroundValue>
@@ -102,7 +101,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
         }
       }
     }
-    // Check whether the received message is a date
+      // Check whether the received message is a date
     else if case .date(_) = message {
       // Persist data
       PlaygroundKeyValueStore.current["birthdate"] = message
@@ -198,12 +197,6 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
       guard displayARKit else { return }
       // Show AR button
       ARButton.isHidden = false
-      // Capture an image of CardView for later use
-      UIGraphicsBeginImageContextWithOptions(cardView.frame.size, false, 10)
-      guard let context = UIGraphicsGetCurrentContext() else { return }
-      cardView.layer.render(in: context)
-      cardViewImage = UIGraphicsGetImageFromCurrentImageContext()
-      UIGraphicsEndImageContext()
     }
   }
   
@@ -389,8 +382,13 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   
   public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Get ARViewController object
-    guard let ARViewController = segue.destination as? ARViewController,
-      let cardViewImage = cardViewImage else { return }
+    guard let ARViewController = segue.destination as? ARViewController else { return }
+    // Capture an image of CardView
+    UIGraphicsBeginImageContextWithOptions(cardView.frame.size, false, 3)
+    guard let context = UIGraphicsGetCurrentContext() else { return }
+    cardView.layer.render(in: context)
+    guard let cardViewImage = UIGraphicsGetImageFromCurrentImageContext() else { return }
+    UIGraphicsEndImageContext()
     // Pass the image to ARViewController
     ARViewController.cardImage = cardViewImage
   }
