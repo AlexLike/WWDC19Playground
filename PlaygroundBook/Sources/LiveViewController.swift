@@ -17,7 +17,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   
   // Outlets
   @IBOutlet weak var cardView: CardView!
-  @IBOutlet weak var contentStackView: UIStackView!
+  @IBOutlet weak var contentView: UIView!
   @IBOutlet weak var profileImageView: ProfileImageView!
   @IBOutlet weak var birthdateActionView: ActionView!
   @IBOutlet weak var birthdateMonthLabel: UILabel!
@@ -33,6 +33,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   @IBOutlet weak var meetLabel: UILabel!
   @IBOutlet weak var voiceOverButton: BottomButton!
   @IBOutlet weak var ARButton: BottomButton!
+  @IBOutlet weak var unsupportedView: UIVisualEffectView!
   
   // Animator objects
   private var cardAnimator: UIDynamicAnimator!
@@ -41,6 +42,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   // User-input
   private var birthdate: Date?
   private var languages: [Language]?
+  private var cardViewImage: UIImage?
   
   
   // MARK: - Controller lifecycle
@@ -62,6 +64,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   public override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     setupCardAnimator()
+    displayUnsupportedIfNeeded()
   }
 
   
@@ -195,6 +198,12 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
       guard displayARKit else { return }
       // Show AR button
       ARButton.isHidden = false
+      // Capture an image of CardView for later use
+      UIGraphicsBeginImageContextWithOptions(cardView.frame.size, false, 10)
+      guard let context = UIGraphicsGetCurrentContext() else { return }
+      cardView.layer.render(in: context)
+      cardViewImage = UIGraphicsGetImageFromCurrentImageContext()
+      UIGraphicsEndImageContext()
     }
   }
   
@@ -327,9 +336,9 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
         y: cardView.center.y + deltaPos.y
       )
       // Check whether card view overlaps the left edge of view
-      if !view.frame.contains(view.convert(cardView.frame.origin, from: contentStackView)) {
+      if !view.frame.contains(view.convert(cardView.frame.origin, from: contentView)) {
         print("CardView overlaps the left edge of view")
-      } else if !view.frame.contains(view.convert(CGPoint(x: cardView.frame.maxX, y: 0), from: contentStackView)) {
+      } else if !view.frame.contains(view.convert(CGPoint(x: cardView.frame.maxX, y: 0), from: contentView)) {
         print("CardView overlaps the right edge of view")
       }
       // Flush the recognizer
@@ -347,10 +356,20 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   
   private func setupCardAnimator() {
     // Instantiate the animator object with live view as
-    cardAnimator = UIDynamicAnimator(referenceView: view)
+    cardAnimator = UIDynamicAnimator(referenceView: contentView)
     // Configure the snap behaviour
-    let cardViewCenterOnView = cardView.convert(cardView.center, to: view)
-    cardSnapBehaviour = UISnapBehavior(item: cardView, snapTo: CGPoint(x: view.center.x, y: cardViewCenterOnView.y))
+    cardSnapBehaviour = UISnapBehavior(item: cardView, snapTo: contentView.center)
+  }
+  
+  private func displayUnsupportedIfNeeded() {
+    // Check view size
+    if view.bounds.size.height < 600 {
+      // Show unsupported view
+      unsupportedView.isHidden = false
+    } else {
+      // Hide unsupported view
+      unsupportedView.isHidden = true
+    }
   }
   
   private func updateBirthdateLabelling(date: Date) {
@@ -368,7 +387,16 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   
   // MARK: - Navigation
   
+  public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // Get ARViewController object
+    guard let ARViewController = segue.destination as? ARViewController,
+      let cardViewImage = cardViewImage else { return }
+    // Pass the image to ARViewController
+    ARViewController.cardImage = cardViewImage
+  }
+  
   @IBAction func goBackToLiveViewController(_ segue: UIStoryboardSegue) {
+    // IBAction for unwind segue, empty implementation
   }
   
 }

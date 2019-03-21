@@ -43,10 +43,11 @@ import AVFoundation
 prepareForVoiceOver()
 /*:
  ## It looks so real!
- Finally, let's preview your card in the real world. Thanks to Apple's `ARKit`, you can now bring your digital card into the real world and experience it visually as if it were printed. By calling this function, your personal card gains an AR button:
+ Finally, let's preview your card in the real world. Thanks to Apple's `ARKit` and `SceneKit`, you can now bring your digital card into the real world and experience it visually as if it were printed. By calling this function, your personal card gains an AR button:
  */
-// Import Apple's ARKit framework
+// Import Apple's ARKit and SceneKit frameworks
 import ARKit
+import SceneKit
 // Configure ARKit and enable the AR button
 prepareForARKit()
 //: When you're ready, hit "Run My Code" to see the result.

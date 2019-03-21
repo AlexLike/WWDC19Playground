@@ -13,11 +13,11 @@
  Emojis are great, right? Everyone loves them, so let's specify your favorite and see what happens:
  */
 //#-hidden-code
-import UIKit
 import PlaygroundSupport
 
 if
 //#-end-hidden-code
+// Add the emoji ActionView and provide it with your favorite emoji
 addEmojiActionView(withEmoji: /*#-editable-code your favorite emoji, e.g. 🥳*/""/*#-end-editable-code*/)
 /*:
  ## Call me (maybe)
@@ -26,6 +26,7 @@ addEmojiActionView(withEmoji: /*#-editable-code your favorite emoji, e.g. 🥳*/
 //#-hidden-code
 &&
 //#-end-hidden-code
+// Add the phone ActionView
 addPhoneActionView()
 //: When you're ready, hit "Run My Code" to see the result.
 //#-hidden-code

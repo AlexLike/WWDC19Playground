@@ -18,7 +18,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
   @IBOutlet weak var sceneView: ARSCNView!
   
   // User-input
-  let cardImage: UIImage = #imageLiteral(resourceName: "Test.jpeg")
+  var cardImage: UIImage = #imageLiteral(resourceName: "Test.jpeg")
   
   
   // MARK - Controller lifecycle
@@ -54,7 +54,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     // Create the plane to visualize the node using its position and extent
     let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
     let planeNode = SCNNode(geometry: plane)
-    planeNode.isHidden = true
+    planeNode.isHidden = false
     planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
     // Rotate the planeNode to a horizontal position
     planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
