@@ -15,14 +15,14 @@
  - reflect your personality and
  - be fun.
  ## The basics
- Since your card is built on top of Apple's UIKit framework, we'll have to import it first:
+ Since your card is built on top of Apple's `UIKit` framework, we'll have to import it first:
  */
 import UIKit
 //#-hidden-code
 import PlaygroundSupport
 //#-end-hidden-code
 /*:
- As you can see, your card is drawn in a live view, which means that you can interact with it at any point in time.
+ As you can see, your card is drawn in a *live view*, which means that you can interact with it at any point in time.
  To add your basic information and customize its properties, edit the code below:
  */
 // Instantiate a CardInformation struct that holds your information and provide your basic information as arguments

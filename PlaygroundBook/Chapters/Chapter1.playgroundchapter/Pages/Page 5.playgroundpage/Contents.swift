@@ -8,9 +8,9 @@
 //#-end-hidden-code
 /*:
  # Let's get fancy
- It's now time for the finishing touches.
+ It's now time for the **finishing touches**.
  ## Wait, that's you?
- Up until now, you were able to hide your gorgeous appearance behind an avatar. Well, now, let's add a real image in Swift's `UIImage` format:
+ Up until now, you were able to hide *your gorgeous appearance* behind an avatar. Well, now, let's add a real image in Swift's `UIImage` format:
  */
 //#-hidden-code
 import UIKit
@@ -35,7 +35,7 @@ let cardViewGradient: Gradient = /*#-editable-code your gradient, e.g. .deepBlue
 updateCardViewLayer(toGradient: cardViewGradient)
 /*:
  ## Accessibility
- Technology is the ultimate equalizer, which means that your digital card will be understood by everyone, including those with bad eyesight. By calling this function, your personal card gains a VoiceOver button powered by `AVFoundation`:
+ Technology is the *ultimate equalizer*, which means that your digital card will be understood by everyone, including those with bad eyesight. By calling this function, your personal card gains a VoiceOver button powered by `AVFoundation`:
  */
 // Import Apple's AVFoundation framework
 import AVFoundation

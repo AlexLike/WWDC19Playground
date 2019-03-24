@@ -8,7 +8,7 @@
 //#-end-hidden-code
 /*:
  # When is party time?
- Let's add your first interactive element to your card: your birthdate!
+ Let's add your first interactive element to your card: *your birthdate*!
  Swift uses the `Date` type to capture points in time. To covert our human-readable birthdate to Swift's `Date`, we have to use a `DateFormatter` object:
  */
 //#-hidden-code

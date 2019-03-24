@@ -365,11 +365,39 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
         x: cardView.center.x + deltaPos.x,
         y: cardView.center.y + deltaPos.y
       )
-      // Check whether card view overlaps the left edge of view
-      if !view.frame.contains(view.convert(cardView.frame.origin, from: contentView)) {
-        print("CardView overlaps the left edge of view")
-      } else if !view.frame.contains(view.convert(CGPoint(x: cardView.frame.maxX, y: 0), from: contentView)) {
-        print("CardView overlaps the right edge of view")
+      if isAlexCardShown {
+        // Check whether card view overlaps the left edge of view
+        if !view.frame.contains(view.convert(cardView.frame.origin, from: contentView)) {
+          print("CardView overlaps the left edge of view")
+          // Instantiate the alert controller and set up its text
+          let alert = UIAlertController(
+            title: "Wait, what?",
+            message: "Do you really want to discard me? I'd be super sad. If I were you, I'd swipe to the right!",
+            preferredStyle: .alert
+          )
+          // Add an OK action
+          alert.addAction(UIAlertAction(
+            title: "Okay, I'm sorry",
+            style: .default
+          ))
+          // Present the alert
+          self.present(alert, animated: true, completion: nil)
+        } else if !view.frame.contains(view.convert(CGPoint(x: cardView.frame.maxX, y: 0), from: contentView)) {
+          print("CardView overlaps the right edge of view")
+          // Instantiate the alert controller and set up its text
+          let alert = UIAlertController(
+            title: "It's a match!",
+            message: "Yeah! Alex liked you too. It's time for you to meet somewhere in California. At a conference. This June. Hopefully.",
+            preferredStyle: .alert
+          )
+          // Add an OK action
+          alert.addAction(UIAlertAction(
+            title: "See you at WWDC19",
+            style: .default
+          ))
+          // Present the alert
+          self.present(alert, animated: true, completion: nil)
+        }
       }
       // Flush the recognizer
       recognizer.setTranslation(.zero, in: view)
@@ -386,7 +414,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   
   private func setupCardAnimator() {
     // Instantiate the animator object with live view as
-    cardAnimator = UIDynamicAnimator(referenceView: contentView)
+    cardAnimator = UIDynamicAnimator(referenceView: view)
     // Configure the snap behaviour
     cardSnapBehaviour = UISnapBehavior(item: cardView, snapTo: contentView.center)
   }

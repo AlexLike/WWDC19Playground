@@ -16,8 +16,8 @@ loadAlexCard()
  When you're ready, hit "Run My Code" to see the result.
  * Note:
  This card has some neat surprises:
-   - Swipe it to the right side of the `LiveView`
    - Call me by tapping the phone `ActionView`
+   - Swipe it to the right side of the `LiveView`
  *
  Thank you so much for making my Playground your own!
  Hope to see you soon at WWDC19!

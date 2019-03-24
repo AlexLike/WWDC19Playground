@@ -9,7 +9,7 @@
 /*:
  # How about being more personal
  ## I really love that one
- It's time for another interactive element: your favorite emoji.
+ It's time for another interactive element: *your favorite emoji*.
  Emojis are great, right? Everyone loves them, so let's specify your favorite and see what happens:
  */
 //#-hidden-code
