@@ -42,6 +42,10 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   // User-input
   private var birthdate: Date?
   private var languages: [Language]?
+  private var isAlexCardShown: Bool = false
+  
+  // AVPlayers
+  private var audioPlayer = AVQueuePlayer()
   
   
   // MARK: - Controller lifecycle
@@ -103,6 +107,12 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
         case "displayARKit":
           // Persist data
           PlaygroundKeyValueStore.current["displayARKit"] = dictionary[key]
+        case "loadAlexCard":
+          // Load my data
+          displayAlexCard()
+          // Save state
+          isAlexCardShown = true
+          return
         default:
           return
         }
@@ -170,22 +180,8 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
     if case .array(let languageArray)? = store["languageArray"] {
       // Empty the language property
       languages = [Language]()
-      // Instantiate a flag collection string
-      var languageFlags = String()
-      // Go over each playground value
-      for languagePlaygroundValue in languageArray {
-        // Convert it to a raw string value
-        guard case .string(let languageString) = languagePlaygroundValue else { return }
-        // Cast to Language and store in properties
-        guard let language = Language(rawValue: languageString) else { return }
-        languages?.append(language)
-        // Get the language's flag
-        let flag = flagEmojiForLanguage(language)
-        // Append the flag to the collection
-        languageFlags.append(contentsOf: flag)
-      }
-      // Update flag label
-      languageFlagLabel.text = languageFlags
+      // Update language label
+      updateLanguageLabelling(languageArray: languageArray)
       // Show language ActionView
       languageActionView.isHidden = false
     }
@@ -242,6 +238,7 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
     }
     // Assemble cardText
     let cardText = "You're currently viewing a digital, personal card. \n\(nameLabel.text!) \n\(passionLabel.text!). \n\(occupationLabel.text!). \nMy birthdate is \(birthdateString) and I master the following languages: \(languageString). My favorite emoji is \(emojiLabel.text!). \n\(meetLabel.text!)"
+    // Synthesize speech
     let speechSynthesizer = AVSpeechSynthesizer()
     let speechUtterance = AVSpeechUtterance(string: cardText)
     speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
@@ -309,12 +306,23 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   // Phone action view pressed
   @IBAction func mockCallAndJoke(_ recognizer: UITapGestureRecognizer) {
     print("Now, I'll mock a call.")
-    let mockCallText = "This call's recipient is currently unavailable. Please try again soon."
-    let speechSynthesizer = AVSpeechSynthesizer()
-    let speechUtterance = AVSpeechUtterance(string: mockCallText)
-    speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-    speechUtterance.pitchMultiplier = 0.6
-    speechSynthesizer.speak(speechUtterance)
+    // Check whether my card is shown
+    if isAlexCardShown {
+      // Get the audio file's path
+      guard let audioPath = Bundle.main.path(forResource: "Alex Phone Call.m4a", ofType: nil) else { return }
+      print("I have the audio path")
+      audioPlayer.removeAllItems()
+      audioPlayer.insert(AVPlayerItem(url: URL(fileURLWithPath: audioPath)), after: nil)
+      audioPlayer.play()
+    } else {
+      // Synthesize a mock call text
+      let mockCallText = "This call's recipient is currently unavailable. Please try again soon."
+      let speechSynthesizer = AVSpeechSynthesizer()
+      let speechUtterance = AVSpeechUtterance(string: mockCallText)
+      speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+      speechUtterance.pitchMultiplier = 0.6
+      speechSynthesizer.speak(speechUtterance)
+    }
   }
   
   // Language action view pressed
@@ -406,8 +414,59 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
     birthdateDayLabel.text = dateFormatter.string(from: date)
   }
   
+  private func updateLanguageLabelling(languageArray: [PlaygroundValue]) {
+    // Instantiate a flag collection string
+    var languageFlags = String()
+    // Go over each playground value
+    for languagePlaygroundValue in languageArray {
+      // Convert it to a raw string value
+      guard case .string(let languageString) = languagePlaygroundValue else { return }
+      // Cast to Language and store in properties
+      guard let language = Language(rawValue: languageString) else { return }
+      languages?.append(language)
+      // Get the language's flag
+      let flag = flagEmojiForLanguage(language)
+      // Append the flag to the collection
+      languageFlags.append(contentsOf: flag)
+    }
+    // Update flag label
+    languageFlagLabel.text = languageFlags
+  }
+  
   private func displayAlexCard() {
-    
+    // Basic labels
+    nameLabel.text = "Hello, I'm Alex."
+    nameLabel.isHidden = false
+    passionLabel.text = "Although I'm interested in almost everything, I really love 🕺👨‍💻🤳⛷🤝🎾"
+    passionLabel.isHidden = false
+    occupationLabel.text = "I'm currently studying for my Abitur (high school diploma)"
+    occupationLabel.isHidden = false
+    meetLabel.isHidden = false
+    // Birthdate ActionView
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "ddMMyyyy"
+    birthdate = dateFormatter.date(from: "17072002")
+    updateBirthdateLabelling(date: birthdate!)
+    birthdateActionView.isHidden = false
+    // Emoji ActionView
+    emojiLabel.text = "🥳"
+    emojiActionView.isHidden = false
+    // Phone ActionView
+    phoneActionView.isHidden = false
+    // Language ActionView
+    languages = [.englishUS, .german, .romanian, .french]
+    languageFlagLabel.text = "🇺🇸🇩🇪🇷🇴🇫🇷"
+    languageActionView.isHidden = false
+    // Profile ImageView
+    profileImageView.image = UIImage(named: "Alex")
+    profileImageView.isHidden = false
+    // CardView Gradient
+    let cgColorArray = cgColorArrayForGradient(Gradient.bloodyMary)
+    guard let cardViewGradientLayer = cardView.layer as? CAGradientLayer else { return }
+    cardViewGradientLayer.colors = cgColorArray
+    // BottomButtons
+    voiceOverButton.isHidden = false
+    ARButton.isHidden = false
   }
   
   

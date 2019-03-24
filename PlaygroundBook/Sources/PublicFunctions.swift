@@ -38,26 +38,27 @@ public func addLanguagesActionView(forLanguages languages: [Language]?) -> Bool 
   return true
 }
 
-public func updateProfileImageView(withImage image: UIImage?) -> Bool {
-  guard let image = image else { return false }
+public func updateProfileImageView(withImage image: UIImage?) {
+  guard let image = image else { return }
   Book_Sources.sendValue(image)
-  return true
 }
 
-public func updateCardViewLayer(toGradient gradient: Gradient?) -> Bool {
-  guard let gradient = gradient else { return false }
+public func updateCardViewLayer(toGradient gradient: Gradient?) {
+  guard let gradient = gradient else { return }
   Book_Sources.sendValue(gradient.rawValue)
-  return true
 }
 
-public func prepareForVoiceOver() -> Bool {
+public func prepareForVoiceOver() {
   let dictionary = ["displayVoiceOver": PlaygroundValue.boolean(true)]
   Book_Sources.sendValue(PlaygroundValue.dictionary(dictionary))
-  return true
 }
 
-public func prepareForARKit() -> Bool {
+public func prepareForARKit() {
   let dictionary = ["displayARKit": PlaygroundValue.boolean(true)]
   Book_Sources.sendValue(PlaygroundValue.dictionary(dictionary))
-  return true
+}
+
+public func loadAlexCard() {
+  let dictionary = ["loadAlexCard": PlaygroundValue.boolean(true)]
+  Book_Sources.sendValue(PlaygroundValue.dictionary(dictionary))
 }

@@ -22,6 +22,8 @@
 		14B18922223EA00800B1FFC7 /* PlaygroundValueConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B18921223EA00800B1FFC7 /* PlaygroundValueConvertible.swift */; };
 		14B18924223EC72A00B1FFC7 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B18923223EC72A00B1FFC7 /* Languages.swift */; };
 		14C40020224145CF00817B1A /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4001F224145CF00817B1A /* ARViewController.swift */; };
+		14EB0C612247E191008782BD /* Alex Phone Call.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 14EB0C602247DF4E008782BD /* Alex Phone Call.m4a */; };
+		14EB0C622247E4B7008782BD /* Alex Phone Call.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 14EB0C602247DF4E008782BD /* Alex Phone Call.m4a */; };
 		5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E086DCC2051DDAE004D8D25 /* LiveView.storyboard */; };
 		5E086DD32051E3A3004D8D25 /* Manifest.plist in Copy Book Contents */ = {isa = PBXBuildFile; fileRef = 5E086DCF2051DF0F004D8D25 /* Manifest.plist */; };
 		5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3196F22061DEA40077BBD7 /* LiveViewSupport.swift */; };
@@ -112,12 +114,13 @@
 		14AB2732223C1BB700F37B03 /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
 		14AB2735223C203600F37B03 /* BottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButton.swift; sourceTree = "<group>"; };
 		14AB2737223C611900F37B03 /* ConfettiOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiOverlayView.swift; sourceTree = "<group>"; };
-		14AB2739223D7C3B00F37B03 /* Playground Book Cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Playground Book Cover.png"; sourceTree = "<group>"; };
+		14AB2739223D7C3B00F37B03 /* Playground Book Cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Playground Book Cover.png"; path = "PlaygroundBook/PrivateResources/Playground Book Cover.png"; sourceTree = SOURCE_ROOT; };
 		14AB273B223E6B2E00F37B03 /* CardInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInformation.swift; sourceTree = "<group>"; };
 		14B1891F223E8CC000B1FFC7 /* PublicFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicFunctions.swift; sourceTree = "<group>"; };
 		14B18921223EA00800B1FFC7 /* PlaygroundValueConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundValueConvertible.swift; sourceTree = "<group>"; };
 		14B18923223EC72A00B1FFC7 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		14C4001F224145CF00817B1A /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		14EB0C602247DF4E008782BD /* Alex Phone Call.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Alex Phone Call.m4a"; path = "PlaygroundBook/PrivateResources/Alex Phone Call.m4a"; sourceTree = SOURCE_ROOT; };
 		5E086DC02051C5A7004D8D25 /* WWDC19.playgroundbook */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDC19.playgroundbook; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E086DC72051DD03004D8D25 /* BookOverridingBuildSettings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BookOverridingBuildSettings.xcconfig; sourceTree = "<group>"; };
 		5E086DCD2051DDB8004D8D25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LiveView.storyboard; sourceTree = "<group>"; };
@@ -269,6 +272,7 @@
 		5EF2F9792054B64800191409 /* PrivateResources */ = {
 			isa = PBXGroup;
 			children = (
+				14EB0C602247DF4E008782BD /* Alex Phone Call.m4a */,
 				5EF2F97E2054B6E400191409 /* ManifestPlist.strings */,
 				14AB2739223D7C3B00F37B03 /* Playground Book Cover.png */,
 				142777BD223BFDF300DB3B27 /* PlaygroundAssets.xcassets */,
@@ -413,6 +417,7 @@
 			files = (
 				5EF2F97C2054B6E400191409 /* ManifestPlist.strings in Resources */,
 				142777BE223BFDF300DB3B27 /* PlaygroundAssets.xcassets in Resources */,
+				14EB0C612247E191008782BD /* Alex Phone Call.m4a in Resources */,
 				5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */,
 				14AB273A223D7D1B00F37B03 /* Playground Book Cover.png in Resources */,
 			);
@@ -425,6 +430,7 @@
 				5EA2E3CA2056F35B00416A35 /* LiveViewTestAppLaunchScreen.storyboard in Resources */,
 				14AB2731223C12A900F37B03 /* PlaygroundAssets.xcassets in Resources */,
 				14AB2730223C129C00F37B03 /* LiveView.storyboard in Resources */,
+				14EB0C622247E4B7008782BD /* Alex Phone Call.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
