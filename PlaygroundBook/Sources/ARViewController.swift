@@ -101,7 +101,11 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
       return float3(delta.x, delta.y, delta.z)
     }
     // Create the cardNode
-    let card = SCNPlane(width: 0.1, height: 0.15)
+    let height: CGFloat = 0.15
+    let scaleFactor = height / cardImage.size.height
+    let width = cardImage.size.width * scaleFactor
+    let card = SCNPlane(width: width, height: height)
+    card.cornerRadius = 45 * scaleFactor
     card.materials.first?.diffuse.contents = cardImage
     card.materials.first?.roughness.contents = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     card.materials.first?.lightingModel = .physicallyBased

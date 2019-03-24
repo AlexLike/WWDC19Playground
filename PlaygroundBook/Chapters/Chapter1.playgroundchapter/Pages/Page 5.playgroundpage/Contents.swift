@@ -51,3 +51,5 @@ import SceneKit
 // Configure ARKit and enable the AR button
 prepareForARKit()
 //: When you're ready, hit "Run My Code" to see the result.
+//#-hidden-code
+PlaygroundPage.current.assessmentStatus = .pass(message: "### Wow! \nClose this prompt and try out your creation! Tap on your VoiceOver and AR buttons to experience your finished card. *For the grand finale, let's finish up with the [**last page**](@next)*")

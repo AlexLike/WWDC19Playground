@@ -48,14 +48,21 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   
   public override func viewDidLoad() {
     super.viewDidLoad()
-    // Hide all ActionViews, as they're only unlocked at a later point in time
+    // Hide all labels, since they're only unlocked at a later point in time
+    nameLabel.isHidden = true
+    passionLabel.isHidden = true
+    occupationLabel.isHidden = true
+    meetLabel.isHidden = true
+    // Hide the image view, since it's only unlocked at a later point in time
+    profileImageView.isHidden = true
+    // Hide all ActionViews, since they're only unlocked at a later point in time
     birthdateActionView.isHidden = true
     emojiActionView.isHidden = true
     phoneActionView.isHidden = true
     languageActionView.isHidden = true
-    // Hide all BottomButtons, as they're only unlocked at a later point in time
+    // Hide all BottomButtons, since they're only unlocked at a later point in time
     voiceOverButton.isHidden = true
-    ARButton.isHidden = false
+    ARButton.isHidden = true
     // Restore data from previous pages
     restoreFromPersistance()
   }
@@ -129,7 +136,16 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   // Load data from persistant storage and display it
   private func restoreFromPersistance() {
     let store = PlaygroundKeyValueStore.current
-    if case .string(let name)? = store["name"] { nameLabel.text = "Hello! I'm \(name)." }
+    if case .string(let name)? = store["name"] {
+      nameLabel.text = "Hello! I'm \(name)."
+      // Show all labels
+      nameLabel.isHidden = false
+      passionLabel.isHidden = false
+      occupationLabel.isHidden = false
+      meetLabel.isHidden = false
+      // Show the image view
+      profileImageView.isHidden = false
+    }
     if case .string(let passionEmojis)? = store["passionEmojis"] { passionLabel.text = "Although I'm interested in almost everything, I really love \(passionEmojis)" }
     if case .string(let occupation)? = store["occupation"] { occupationLabel.text = "I'm currently \(occupation)" }
     if case .date(let birthdate)? = store["birthdate"] {
@@ -218,7 +234,14 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
       // Input your birthdate in the selected format
       return dateFormatter.string(from: birthdate ?? Date())
     }
-    let cardText = "You're currently viewing a digital, personal card. \n\(nameLabel.text!) \n\(passionLabel.text!). \n\(occupationLabel.text!). \nMy birthdate is \(birthdateString). \n\(meetLabel.text!)"
+    // Get the spoken languages as a String
+    guard let languages = languages else { return }
+    var languageString = String()
+    for language in languages {
+      languageString.append("\(language.rawValue), ")
+    }
+    // Assemble cardText
+    let cardText = "You're currently viewing a digital, personal card. \n\(nameLabel.text!) \n\(passionLabel.text!). \n\(occupationLabel.text!). \nMy birthdate is \(birthdateString) and I master the following languages: \(languageString). My favorite emoji is \(emojiLabel.text!). \n\(meetLabel.text!)"
     let speechSynthesizer = AVSpeechSynthesizer()
     let speechUtterance = AVSpeechUtterance(string: cardText)
     speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
@@ -286,6 +309,12 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
   // Phone action view pressed
   @IBAction func mockCallAndJoke(_ recognizer: UITapGestureRecognizer) {
     print("Now, I'll mock a call.")
+    let mockCallText = "This call's recipient is currently unavailable. Please try again soon."
+    let speechSynthesizer = AVSpeechSynthesizer()
+    let speechUtterance = AVSpeechUtterance(string: mockCallText)
+    speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+    speechUtterance.pitchMultiplier = 0.6
+    speechSynthesizer.speak(speechUtterance)
   }
   
   // Language action view pressed
@@ -375,6 +404,10 @@ public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHand
     // Format day
     dateFormatter.setLocalizedDateFormatFromTemplate("d")
     birthdateDayLabel.text = dateFormatter.string(from: date)
+  }
+  
+  private func displayAlexCard() {
+    
   }
   
   

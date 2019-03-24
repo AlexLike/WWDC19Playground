@@ -31,7 +31,7 @@ addPhoneActionView()
 //: When you're ready, hit "Run My Code" to see the result.
 //#-hidden-code
 {
-  PlaygroundPage.current.assessmentStatus = .pass(message: "### Okay! \nTap on your newly created emoji and phone `ActionView`s to see what happens! Under the hood, your personal card uses a `CAEmitterLayer` for animating the confetti. When you've done that, lets continue to the [**next Page**](@next)")
+  PlaygroundPage.current.assessmentStatus = .pass(message: "### Okay! \nTap on your newly created emoji and phone `ActionView`s to see what happens! Under the hood, your personal card uses a `CAEmitterLayer` for animating the confetti. When you've done that, lets continue to the [**next page**](@next)")
 } else {
   PlaygroundPage.current.assessmentStatus = .fail(hints: ["Make sure that you only enter one favorite emoji."], solution: nil)
 }

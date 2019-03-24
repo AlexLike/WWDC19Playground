@@ -45,7 +45,7 @@ addLanguagesActionView(forLanguages: myLanguages)
 //: When you're ready, hit "Run My Code" to see the result.
 //#-hidden-code
 {
-  PlaygroundPage.current.assessmentStatus = .pass(message: "### You rock! \nTry to tap on your newly created language `ActionView` to see what happens! When you've done that, lets continue on the [**next Page**](@next)")
+  PlaygroundPage.current.assessmentStatus = .pass(message: "### You rock! \nTap on your newly created language `ActionView` to see what happens! When you've done that, lets continue to the [**next page**](@next)")
 } else {
   PlaygroundPage.current.assessmentStatus = .fail(hints: ["Make sure that you've used the correct form of writing and only languages listed above. Also, provide at least one language, since you know at least English if you're able to read this."], solution: nil)
 }
