@@ -1,7 +1,7 @@
 # Build your personal CARD
 #### A Swift Playground by Alexander Zank realized during March 2019.
 
-![Playground Book Cover](/PlaygroundBook/PrivateResources/Playground%20Book%20Cover.png)
+![Playground Book Cover](https://raw.githubusercontent.com/AlexLike/WWDC19Playground/Documentation-Assets/project%20header.png?token=AdDgyzo4brK3FDKrM2TJHWn_dT717GV0ks5co34_wA%3D%3D)
 
 ## Introduction
 "Build your personal CARD" leverages plenty of exciting Apple technologies to provide its users with a fun, yet easy to understand, experience in which they build their fancy, digital and interactive personal card with a ton of crazy and entertaining interactions and easter eggs.
