@@ -1,6 +1,8 @@
 # Build your personal CARD
 #### A Swift Playground by Alexander Zank realized during March 2019.
 
+![Playground Book Cover](/PlaygroundBook/PrivateResources/Playground%20Book%20Cover.png)
+
 ## Introduction
 "Build your personal CARD" leverages plenty of exciting Apple technologies to provide its users with a fun, yet easy to understand, experience in which they build their fancy, digital and interactive personal card with a ton of crazy and entertaining interactions and easter eggs.
 As they progress through this short playground, its users learn the basics of Foundation's data types, the use of DateFormatter objects and how to make use of image literals inside of their code.
@@ -19,7 +21,7 @@ All in all, my Swift playground demonstrates how one can use many Apple technolo
 
 ## License
 
->Copyright (c) 2018 Alexander Zank
+>Copyright (c) 2019 Alexander Zank
 >
 >Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
